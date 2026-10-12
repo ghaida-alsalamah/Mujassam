@@ -6,7 +6,6 @@ Natural language → parametric CAD → checked geometry → printable files
 
 <p>
   <a href="LIVE_DEMO_URL"><img src="https://img.shields.io/badge/OPEN_LIVE_DEMO-FF6B00?style=for-the-badge&logo=rocket&logoColor=white" alt="Live Demo"></a>
-  <a href="https://claude.ai/artifact/PiL9DScHyTKGWyyNrriZXN"><img src="https://img.shields.io/badge/VIEW_INTERFACE-1F2329?style=for-the-badge&logo=anthropic&logoColor=white" alt="Interface"></a>
 </p>
 
 <p>
