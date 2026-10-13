@@ -309,6 +309,20 @@ The project also generated additional parts such as flanges, pulleys, fan guards
 
 <h2><strong>Sealed Test by Difficulty</strong></h2>
 
+<h1><strong>BEFORE vs AFTER FINE-TUNING</strong></h1>
+
+| Evaluation Set | Base Qwen2.5-Coder-7B | Mujassam Fine-Tuned |
+|---|---:|---:|
+| **In-Domain Regression** | **7/20 · 35.0%** | **20/20 · 100.0%** |
+| **Second In-Domain Regression** | **1/12 · 8.3%** | **12/12 · 100.0%** |
+
+### Size + Requested Holes
+
+| Evaluation Set | Base Qwen2.5-Coder-7B | Mujassam Fine-Tuned |
+|---|---:|---:|
+| **In-Domain Regression** | **2/20 · 10.0%** | **20/20 · 100.0%** |
+| **Second In-Domain Regression** | **0/12 · 0.0%** | **12/12 · 100.0%** |
+
 <p align="center">
   <img src="https://img.shields.io/badge/TIER_1_%C2%B7_1--2_FEATURES-60.0%25-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Tier 1">
   <img src="https://img.shields.io/badge/TIER_2_%C2%B7_3--4_FEATURES-33.3%25-6B7280?style=for-the-badge&labelColor=0B1F3A" alt="Tier 2">
