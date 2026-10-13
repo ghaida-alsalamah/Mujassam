@@ -375,7 +375,7 @@ Advanced sweeps and lofts · unusual slots · subtle feature orientation · stru
 <p align="center">
   <strong>Ghaida Alsalamah</strong>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>Alreem Rashed Aldossary</strong>
+  <strong>Alreem Aldossary</strong>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <strong>Fahad Alshehri</strong>
 </p>
@@ -517,16 +517,6 @@ Stronger semantic validation · broader geometry coverage · persistent GPU depl
 
 ---
 
-<details>
-<summary><h2><strong>AI-ASSISTED DEVELOPMENT DISCLOSURE</strong></h2></summary>
-
-AI tools were used during development for implementation support, debugging, code review, generator review, documentation, and interface prototyping.
-
-The team directed the work, ran training and evaluation, reviewed outputs, and programmatically verified training targets before inclusion in the fine-tuning dataset.
-
-</details>
-
----
 
 <div align="center">
 
@@ -536,7 +526,7 @@ The team directed the work, ran training and evaluation, reviewed outputs, and p
 
 <br><br>
 
-**Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri**
+**Ghaida Alsalamah · Alreem Aldossary · Fahad Alshehri**
 
 <br><br>
 
