@@ -1,0 +1,3 @@
+Evaluation set,Cases,Base size,Base size %,Final size,Final size %,Size improvement (pp),Base size+holes,Base size+holes %,Final size+holes,Final size+holes %,Gate improvement (pp)
+in_family_20,20,7/20,35.0,20/20,100.0,65.0,2/20,10.0,20/20,100.0,90.0
+in_family_f01_f12,12,1/12,8.3,12/12,100.0,91.7,0/12,0.0,12/12,100.0,100.0

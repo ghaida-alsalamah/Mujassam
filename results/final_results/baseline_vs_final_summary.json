@@ -1,0 +1,30 @@
+[
+  {
+    "Evaluation set": "in_family_20",
+    "Cases": 20,
+    "Base size": "7/20",
+    "Base size %": 35.0,
+    "Final size": "20/20",
+    "Final size %": 100.0,
+    "Size improvement (pp)": 65.0,
+    "Base size+holes": "2/20",
+    "Base size+holes %": 10.0,
+    "Final size+holes": "20/20",
+    "Final size+holes %": 100.0,
+    "Gate improvement (pp)": 90.0
+  },
+  {
+    "Evaluation set": "in_family_f01_f12",
+    "Cases": 12,
+    "Base size": "1/12",
+    "Base size %": 8.3,
+    "Final size": "12/12",
+    "Final size %": 100.0,
+    "Size improvement (pp)": 91.7,
+    "Base size+holes": "0/12",
+    "Base size+holes %": 0.0,
+    "Final size+holes": "12/12",
+    "Final size+holes %": 100.0,
+    "Gate improvement (pp)": 100.0
+  }
+]
