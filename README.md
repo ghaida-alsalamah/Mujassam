@@ -1,8 +1,8 @@
 <div align="center">
 
-<h1><strong>Mujassam · مجسّم</strong></h1>
+Mujassam · مجسّم
 
-<h3>Natural Language → Parametric CAD → Verified Geometry → Printable Files</h3>
+Natural Language → Parametric CAD → Verified Geometry → Printable Files
 
 <p>
   <a href="LIVE_DEMO_URL">
@@ -22,19 +22,17 @@
   <img src="https://img.shields.io/badge/EXPORT-STEP_%7C_STL_%7C_GLB-6B7280?style=flat-square&labelColor=0B1F3A" alt="Export">
 </p>
 
-**Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri**
+Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri
 
 Tuwaiq Academy · Generative AI Application Engineering Bootcamp · October 2026
 
 </div>
 
 <p align="center">
-  <img src="HERO_IMAGE_URL" width="100%" alt="Mujassam generative CAD project">
+  <img src="./docs/assets/mujassam-hero.jpg" width="100%" alt="Mujassam generative CAD project">
 </p>
 
----
-
-<h1><strong>THE PROBLEM</strong></h1>
+THE PROBLEM
 
 A custom mechanical part may be simple in shape, but creating it still requires CAD knowledge, precise modelling, and time.
 
@@ -47,13 +45,11 @@ General-purpose language models can generate CAD-like code, but a plausible prev
   <img src="https://img.shields.io/badge/FEATURES-May_be_missing-6B7280?style=for-the-badge&labelColor=0B1F3A" alt="Features">
 </p>
 
-> **Mujassam was built so generated geometry is executed, measured, and checked before it is exported.**
+Mujassam was built so generated geometry is executed, measured, and checked before it is exported.
 
----
+THE SOLUTION
 
-<h1><strong>THE SOLUTION</strong></h1>
-
-**Mujassam is a generative CAD tool** for students, robotics teams, fab labs, and small workshops.
+Mujassam is a generative CAD tool for students, robotics teams, fab labs, and small workshops.
 
 The user describes a mechanical part in plain English and provides its overall dimensions in millimetres.
 
@@ -70,20 +66,10 @@ Mujassam retrieves relevant engineering knowledge, generates a parametric CadQue
 </p>
 
 <p align="center">
-  <sub>
-    Description + dimensions
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    CadQuery generation
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    Execute + measure + validate
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    STEP · STL · GLB
-  </sub>
+  <sub>Description + dimensions &nbsp;&nbsp;&nbsp; CadQuery generation &nbsp;&nbsp;&nbsp; Execute + measure + validate &nbsp;&nbsp;&nbsp; STEP · STL · GLB</sub>
 </p>
 
----
-
-<h1><strong>SYSTEM ARCHITECTURE</strong></h1>
+SYSTEM ARCHITECTURE
 
 <p align="center">
   <img
@@ -93,19 +79,17 @@ Mujassam retrieves relevant engineering knowledge, generates a parametric CadQue
   >
 </p>
 
-### **Where the Generative AI Is**
+Where the Generative AI Is
 
-**Qwen2.5-Coder-7B + QLoRA generates the CadQuery program for every request.**
+Qwen2.5-Coder-7B + QLoRA generates the CadQuery program for every request.
 
 The final geometry is not produced by a hidden deterministic compiler.
 
 The surrounding components handle:
 
-`retrieval → safety → execution → measurement → validation → repair → export`
+retrieval → safety → execution → measurement → validation → repair → export
 
----
-
-<h1><strong>REQUEST WORKFLOW</strong></h1>
+REQUEST WORKFLOW
 
 <p align="center">
   <img
@@ -119,40 +103,67 @@ If a build fails execution or validation, the failure information is returned to
 
 Only an accepted result reaches export.
 
----
+MODEL & TECHNOLOGY
 
-<h1><strong>MODEL & TECHNOLOGY</strong></h1>
+Component
 
-| Component | Final Choice |
-|---|---|
-| **Base Model** | `Qwen/Qwen2.5-Coder-7B-Instruct` |
-| **Adaptation** | QLoRA |
-| **LoRA Configuration** | rank 16 · alpha 32 · dropout 0.05 |
-| **Quantization** | 4-bit NF4 + double quantization |
-| **Context Length** | 2,048 tokens |
-| **Trainable Parameters** | ~40.4M · ~0.53% |
-| **Embeddings** | `sentence-transformers/all-MiniLM-L6-v2` |
-| **Vector Database** | Chroma |
-| **CAD Engine** | CadQuery |
-| **Exports** | STEP · STL · GLB |
+Final Choice
 
----
+Base Model
 
-<h1><strong>TRAINING DATA</strong></h1>
+Qwen/Qwen2.5-Coder-7B-Instruct
 
-The final model is trained on **project-generated procedural CAD data**.
+Adaptation
+
+QLoRA
+
+LoRA Configuration
+
+rank 16 · alpha 32 · dropout 0.05
+
+Quantization
+
+4-bit NF4 + double quantization
+
+Context Length
+
+2,048 tokens
+
+Trainable Parameters
+
+~40.4M · ~0.53%
+
+Embeddings
+
+sentence-transformers/all-MiniLM-L6-v2
+
+Vector Database
+
+Chroma
+
+CAD Engine
+
+CadQuery
+
+Exports
+
+STEP · STL · GLB
+
+TRAINING DATA
+
+The final model is trained on project-generated procedural CAD data.
 
 Each generator creates:
 
-`dimensions → optional features → natural-language request → correct CadQuery target`
+dimensions → optional features → natural-language request → correct CadQuery target
 
 The target geometry is executed and validated before the example is accepted for training.
 
-### **Supervised Dataset Composition**
+Supervised Dataset Composition
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/TOTAL_RECORDS-6%2C823-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="6823 total training records">
+<img src="https://img.shields.io/badge/TOTAL_RECORDS-6%2C823-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="6823 total records">
 
 <br><br>
 
@@ -162,7 +173,7 @@ The target geometry is executed and validated before the example is accepted for
 
 </div>
 
-### **Part-Type Split**
+Part-Type Split
 
 <p align="center">
   <img src="https://img.shields.io/badge/DESIGNED_TYPES-85-FF6B00?style=flat-square&labelColor=0B1F3A" alt="85 designed part types">
@@ -171,7 +182,7 @@ The target geometry is executed and validated before the example is accepted for
   <img src="https://img.shields.io/badge/HELD_OUT-7-6B7280?style=flat-square&labelColor=0B1F3A" alt="7 held out types">
 </p>
 
-### **What Gets Verified Before Training**
+What Gets Verified Before Training
 
 <p align="center">
   <img src="https://img.shields.io/badge/EXECUTION-PASS-0B1F3A?style=flat-square" alt="Execution">
@@ -181,55 +192,25 @@ The target geometry is executed and validated before the example is accepted for
   <img src="https://img.shields.io/badge/FEATURE_PROBES-PASS-0B1F3A?style=flat-square" alt="Features">
 </p>
 
-**5,860 / 5,860 direct-generation targets passed the training-data verification pipeline.**
+5,860 / 5,860 direct-generation targets passed the training-data verification pipeline.
 
----
-
-<h1><strong>FEATURE COMPOSITION</strong></h1>
+FEATURE COMPOSITION
 
 The training data does not only contain repeated complete objects.
 
 Six composition generators teach the model how CAD features can be combined:
 
-`composed_plate`
+composed_plate · composed_block · composed_disc · composed_l_bracket · composed_ring · composed_tray
 
-`composed_block`
+Each example combines 2–4 compatible features, such as:
 
-`composed_disc`
-
-`composed_l_bracket`
-
-`composed_ring`
-
-`composed_tray`
-
-Each example combines **2–4 compatible features**, such as:
-
-```text
-base plate
-+ mounting holes
-+ pocket
-+ chamfer
-```
-
-```text
-disc
-+ central bore
-+ bolt circle
-+ raised boss
-```
-
-```text
-L-bracket
-+ adjustment slots
-+ upright holes
-```
+base plate + mounting holes + pocket + chamfer
+disc + central bore + bolt circle + raised boss
+L-bracket + adjustment slots + upright holes
 
 This encourages learning reusable CAD operations instead of only memorising fixed object templates.
 
----
-
-<h1><strong>FINE-TUNING vs RAG</strong></h1>
+FINE-TUNING vs RAG
 
 <p align="center">
   <img
@@ -239,40 +220,43 @@ This encourages learning reusable CAD operations instead of only memorising fixe
   >
 </p>
 
-### **Fine-Tuning**
+Fine-Tuning
 
 QLoRA learns from:
 
-- **5,860 verified generation examples**
-- **963 repair examples**
-- feature-composition examples
+5,860 verified generation examples
+
+963 repair examples
+
+feature-composition examples
 
 Fine-tuning changes the model adapter weights and teaches the model how to generate and repair CadQuery.
 
-### **RAG**
+RAG
 
 The runtime knowledge base contains:
 
-- **16 engineering construction recipes**
-- **8 CadQuery API notes**
-- MiniLM embeddings
-- Chroma retrieval
+16 engineering construction recipes
+
+8 CadQuery API notes
+
+MiniLM embeddings
+
+Chroma retrieval
 
 For each request, Mujassam retrieves at most:
 
-**1 engineering recipe + 2 API notes**
+1 engineering recipe + 2 API notes
 
-The retrieved material is guidance for the model. It is **not** the finished CAD program.
+RAG provides guidance. It does not retrieve the finished CAD program.
 
----
-
-<h1><strong>REPRESENTATIVE OUTPUTS</strong></h1>
+REPRESENTATIVE OUTPUTS
 
 These examples are taken from actual Mujassam-generated CAD outputs.
 
 <p align="center">
   <img
-    src="OUTPUTS_IMAGE_URL"
+    src="./docs/assets/mujassam-outputs.png"
     width="100%"
     alt="Representative Mujassam CAD outputs"
   >
@@ -286,21 +270,59 @@ These examples are taken from actual Mujassam-generated CAD outputs.
 
 The project also generated additional parts such as flanges, pulleys, fan guards, mounting plates, and curved tube geometry during testing.
 
----
+EVALUATION
 
-<h1><strong>EVALUATION</strong></h1>
+Frozen Final Model
 
-### **Frozen Final Model**
+Evaluation Set
 
-| Evaluation Set | Cases | Overall Size | Size + Requested Holes |
-|---|---:|---:|---:|
-| **In-Domain Regression** | 20 | **20/20 · 100%** | **20/20 · 100%** |
-| **Second In-Domain Regression** | 12 | **12/12 · 100%** | **12/12 · 100%** |
-| **Sealed User Test** | 30 | **13/30 · 43.3%** | **11/30 · 36.7%** |
-| **Held-Out Part Types** | 28 | **10/28 · 35.7%** | **7/28 · 25.0%** |
-| **Independent Reserve** | 20 | **5/20 · 25.0%** | **4/20 · 20.0%** |
+Cases
 
-### **Sealed Test by Difficulty**
+Overall Size
+
+Size + Requested Holes
+
+In-Domain Regression
+
+20
+
+20/20 · 100%
+
+20/20 · 100%
+
+Second In-Domain Regression
+
+12
+
+12/12 · 100%
+
+12/12 · 100%
+
+Sealed User Test
+
+30
+
+13/30 · 43.3%
+
+11/30 · 36.7%
+
+Held-Out Part Types
+
+28
+
+10/28 · 35.7%
+
+7/28 · 25.0%
+
+Independent Reserve
+
+20
+
+5/20 · 25.0%
+
+4/20 · 20.0%
+
+Sealed Test by Difficulty
 
 <p align="center">
   <img src="https://img.shields.io/badge/TIER_1_%C2%B7_1--2_FEATURES-60.0%25-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Tier 1">
@@ -308,7 +330,7 @@ The project also generated additional parts such as flanges, pulleys, fan guards
   <img src="https://img.shields.io/badge/TIER_3_%C2%B7_COMPLEX_GEOMETRY-37.5%25-6B7280?style=for-the-badge&labelColor=0B1F3A" alt="Tier 3">
 </p>
 
-### **Main Failure Modes**
+Main Failure Modes
 
 <p align="center">
   <img src="https://img.shields.io/badge/CODE_ERRORS-9-6B7280?style=for-the-badge&labelColor=0B1F3A" alt="Code errors">
@@ -320,11 +342,9 @@ The model performs strongly on familiar CAD operations.
 
 The main remaining challenge is generalization to genuinely unfamiliar geometry and more complex feature relationships.
 
----
+VALIDATION
 
-<h1><strong>VALIDATION</strong></h1>
-
-### **Automatically Checked**
+Automatically Checked
 
 <p align="center">
   <img src="https://img.shields.io/badge/AST_SAFETY-CHECKED-0B1F3A?style=flat-square" alt="Safety">
@@ -335,30 +355,26 @@ The main remaining challenge is generalization to genuinely unfamiliar geometry 
   <img src="https://img.shields.io/badge/HOLES_%2F_BORES-CHECKED_WHERE_SUPPORTED-0B1F3A?style=flat-square" alt="Features">
 </p>
 
-### **Human Review Is Still Required For**
+Human Review Is Still Required For
 
 Advanced sweeps and lofts · unusual slots · subtle feature orientation · structural suitability · final physical fit
 
-> **Mujassam is a capstone prototype, not an engineering-certification system.**
+Mujassam is a capstone prototype, not an engineering-certification system.
 
----
-
-<h1><strong>LIVE DEMO</strong></h1>
+LIVE DEMO
 
 <div align="center">
 
-### **[Open Mujassam →](LIVE_DEMO_URL)**
+Open Mujassam →
 
-### **[Watch Demo Video →](DEMO_VIDEO_URL)**
+Watch Demo Video →
 
 </div>
 
----
-
-<h1><strong>TEAM</strong></h1>
+TEAM
 
 <p align="center">
-  <img src="https://ui-avatars.com/api/?name=Ghaida+Alsalamah&background=FF6B00&color=FFFFFF&size=128&bold=true" width="90" alt="Ghaida Alsalamah">
+  <img src="https://ui-avatars.com/api/?name=Ghaida+Alsalamah&background=0B1F3A&color=FFFFFF&size=128&bold=true" width="90" alt="Ghaida Alsalamah">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://ui-avatars.com/api/?name=Alreem+Rashed+Aldossary&background=0B1F3A&color=FFFFFF&size=128&bold=true" width="90" alt="Alreem Rashed Aldossary">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -373,169 +389,164 @@ Advanced sweeps and lofts · unusual slots · subtle feature orientation · stru
   <strong>Fahad Alshehri</strong>
 </p>
 
----
-
 <details>
-
 <summary><h2><strong>RUN THE PROJECT</strong></h2></summary>
 
-### Colab
+Colab
 
-1. Open `Mujassam_demo.ipynb`.
-2. Select a **T4 GPU or better**.
-3. Run the cells in order.
-4. Upload the project ZIP when requested.
-5. Upload the trained QLoRA adapter ZIP when requested.
-6. Wait for the base model and adapter to load.
-7. Launch the application.
+Open Mujassam_demo.ipynb.
+
+Select a T4 GPU or better.
+
+Run the cells in order.
+
+Upload the project ZIP when requested.
+
+Upload the trained QLoRA adapter ZIP when requested.
+
+Wait for the base model and adapter to load.
+
+Launch the application.
 
 Example request:
 
-```text
 Flanged bearing mount, overall 48 x 48 x 18 mm,
 24 mm central bore, four 4 mm mounting holes
 on a 36 mm square pattern.
-```
 
-### Local Setup
+Local Setup
 
-```bash
 git clone https://github.com/ghaida-alsalamah/Mujassam.git
 cd Mujassam
-
 python -m venv .venv
-```
 
 Windows:
 
-```bash
 .venv\Scripts\activate
-```
 
 macOS / Linux:
 
-```bash
 source .venv/bin/activate
-```
 
 Install dependencies:
 
-```bash
 pip install -r requirements.txt
-```
 
 A CUDA-capable GPU is recommended for local 7B inference.
 
 </details>
 
----
-
 <details>
-
 <summary><h2><strong>REPOSITORY STRUCTURE</strong></h2></summary>
 
-```text
 Mujassam/
 ├── README.md
 ├── requirements.txt
 ├── app.py
 ├── Mujassam_demo.ipynb
-│
 ├── mujassam/
-│   ├── engineering_rag.py
-│   ├── rag.py
-│   ├── loop.py
-│   ├── executor.py
-│   ├── safety.py
-│   ├── validate.py
-│   ├── features.py
-│   ├── monitor.py
-│   └── gen_v5/
-│
 ├── data/
 ├── scripts/
 ├── tests/
 ├── results/
 └── docs/
-```
 
 </details>
 
----
-
 <details>
-
 <summary><h2><strong>DATA SOURCES & LICENCES</strong></h2></summary>
 
-| Resource | Role |
-|---|---|
-| **Qwen2.5-Coder-7B-Instruct** | base code model · Apache-2.0 |
-| **Project-generated procedural CAD dataset** | final fine-tuning supervision |
-| **all-MiniLM-L6-v2** | RAG embeddings |
-| **Chroma** | vector retrieval |
-| **CadQuery** | parametric CAD execution |
-| **Transformers · PEFT · bitsandbytes** | model loading, QLoRA, quantized inference |
+Resource
 
-**No external CAD dataset is used to train the final adapter.**
+Role
+
+Qwen2.5-Coder-7B-Instruct
+
+base code model · Apache-2.0
+
+Project-generated procedural CAD dataset
+
+final fine-tuning supervision
+
+all-MiniLM-L6-v2
+
+RAG embeddings
+
+Chroma
+
+vector retrieval
+
+CadQuery
+
+parametric CAD execution
+
+Transformers · PEFT · bitsandbytes
+
+model loading, QLoRA, quantized inference
+
+No external CAD dataset is used to train the final adapter.
 
 </details>
 
----
-
 <details>
-
 <summary><h2><strong>MONITORING & RESPONSIBLE USE</strong></h2></summary>
 
-Each build records information including:
+Each build records:
 
-`request · model · retrieval scores · pass/fail · rejected gate · error type · attempts · dimension error · latency`
+request · model · retrieval scores · pass/fail · rejected gate · error type · attempts · dimension error · latency
 
 Safeguards include:
 
-- generated Python passes an AST safety filter;
-- CadQuery runs in an isolated subprocess with a timeout;
-- rejected outputs are not exported;
-- unambiguous weapon and ammunition-part requests are rejected before generation;
-- users are warned that generated parts are not engineering-certified;
-- users are asked not to enter personal information because requests may be logged.
+generated Python passes an AST safety filter;
+
+CadQuery runs in an isolated subprocess with a timeout;
+
+rejected outputs are not exported;
+
+unambiguous weapon and ammunition-part requests are rejected before generation;
+
+users are warned that generated parts are not engineering-certified;
+
+users are asked not to enter personal information because requests may be logged.
 
 </details>
 
----
-
 <details>
-
 <summary><h2><strong>LESSONS & NEXT STEPS</strong></h2></summary>
 
-### What Worked
+What Worked
 
 Verified procedural training data · code-focused QLoRA · compact engineering RAG · execution-based validation
 
-### Main Limitation
+Main Limitation
 
 Generalization drops when a request requires genuinely unfamiliar topology or feature relationships.
 
-### Next Steps
+Next Steps
 
 Stronger semantic validation · broader geometry coverage · persistent GPU deployment · Arabic input support · more real-world fit testing
 
 </details>
 
----
+<details>
+<summary><h2><strong>AI-ASSISTED DEVELOPMENT DISCLOSURE</strong></h2></summary>
 
+AI tools were used during development for implementation support, debugging, code review, generator review, documentation, and interface prototyping.
+
+The team directed the work, ran training and evaluation, reviewed outputs, and programmatically verified training targets before inclusion in the fine-tuning dataset.
+
+</details>
 
 <div align="center">
 
-<h1><strong>Mujassam · مجسّم</strong></h1>
+Mujassam · مجسّم
 
-**Describe It · Generate It · Check It · Print It**
+Describe It · Generate It · Check It · Print It
 
-<br><br>
+Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri
 
-**Ghaida Alsalamah · Alreem Aldossary · Fahad Alshehri**
+Repository: https://github.com/ghaida-alsalamah/Mujassam
 
-<br>
-
-**Repository:** https://github.com/ghaida-alsalamah/Mujassam
+</div>
 
 </div>
