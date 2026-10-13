@@ -1,0 +1,872 @@
+{
+ "built": "2026-10-12 04:54",
+ "seed": 91000,
+ "per_type": 70,
+ "n_part_types_total": 85,
+ "n_train_types": 76,
+ "heldout_types": [
+  "tube_reducer",
+  "battery_holder",
+  "corner_brace_plate",
+  "bolt_circle_flange_hub",
+  "angled_sensor_mount",
+  "ring_radial_holes",
+  "d_shaft_hub"
+ ],
+ "holdout_seed": 20261012,
+ "val_types": [
+  "pull_handle",
+  "screw_cap"
+ ],
+ "n_val": 42,
+ "val_splits": {
+  "val_unseen_type": 12,
+  "val_in_dist": 30
+ },
+ "n_direct": 5860,
+ "n_repair": 963,
+ "repair_stages": {
+  "code": 459,
+  "intent": 323,
+  "geometry": 6,
+  "feature": 175
+ },
+ "n_test_heldout": 28,
+ "verify_failures_dropped": {},
+ "retrieval_in_training": {
+  "with recipe": 5708,
+  "no recipe": 152
+ },
+ "examples_per_type": {
+  "arc_cable_guide": 70,
+  "arc_segment_plate": 70,
+  "bearing_housing_counterbore": 70,
+  "block_with_pocket": 70,
+  "box_lid_lip": 70,
+  "cable_tie_mount": 70,
+  "chamfered_cube": 70,
+  "chamfered_plate_center_bore": 70,
+  "compartment_tray": 70,
+  "composed_block": 160,
+  "composed_disc": 160,
+  "composed_l_bracket": 160,
+  "composed_plate": 160,
+  "composed_ring": 160,
+  "composed_tray": 160,
+  "counterbored_plate": 70,
+  "fan_guard": 70,
+  "flange_bearing_mount": 70,
+  "flanged_bushing": 70,
+  "flanged_spool": 70,
+  "funnel": 70,
+  "grille_disc": 70,
+  "grommet_lip": 70,
+  "hex_perforated_plate": 70,
+  "hex_spacer": 70,
+  "hinge_leaf": 70,
+  "hollow_rect_arm": 70,
+  "knob_grip_flutes": 70,
+  "l_bracket_gusset": 70,
+  "l_bracket_holes": 70,
+  "nema17_motor_plate": 70,
+  "open_channel_cable_clip": 70,
+  "open_sensor_housing": 70,
+  "open_tray": 70,
+  "pegboard_plate": 70,
+  "perforated_strip": 70,
+  "phone_stand": 70,
+  "pillow_block": 70,
+  "pipe_elbow": 70,
+  "pipe_saddle_clamp": 70,
+  "plate_corner_mounting_holes": 70,
+  "plate_with_bosses": 70,
+  "project_box": 70,
+  "ramp_block": 70,
+  "ribbed_plate": 70,
+  "right_angle_motor_bracket": 70,
+  "round_container": 70,
+  "round_foot_pad": 70,
+  "round_pad_center_bore": 70,
+  "rounded_link": 70,
+  "shaft_collar_set_screw": 70,
+  "shaft_coupler": 70,
+  "shelf_bracket": 70,
+  "slotted_plate": 70,
+  "slotted_tensioner_bracket": 70,
+  "split_shaft_collar": 70,
+  "spring_clip": 70,
+  "spur_gear": 70,
+  "standoff_mounting_plate": 70,
+  "stepped_shaft": 70,
+  "t_bracket_plate": 70,
+  "tapered_arm": 70,
+  "tapered_support_leg": 70,
+  "tool_holder_block": 70,
+  "transition_duct": 70,
+  "tube_clamp_block": 70,
+  "tube_spacer": 70,
+  "u_bracket_pivot": 70,
+  "u_channel_profile": 70,
+  "v_groove_pulley": 70,
+  "vent_slot_plate": 70,
+  "vented_enclosure": 70,
+  "wall_hook": 70,
+  "wedge_door_stop": 70,
+  "wheel_hub_bolt_circle": 70,
+  "z_bracket": 70
+ },
+ "ops_per_type": {
+  "angled_sensor_mount": [
+   "box",
+   "fillet",
+   "rarray",
+   "hole",
+   "cskHole",
+   "polyline-extrude",
+   "union",
+   "face-workplane"
+  ],
+  "arc_cable_guide": [
+   "polyline",
+   "revolve",
+   "box",
+   "hole",
+   "translate",
+   "mirror",
+   "rotate",
+   "union"
+  ],
+  "arc_segment_plate": [
+   "threePointArc",
+   "extrude",
+   "pushPoints",
+   "hole",
+   "cskHole",
+   "cut"
+  ],
+  "battery_holder": [
+   "box",
+   "fillet",
+   "rarray",
+   "hole",
+   "chamfer",
+   "bottom-face-workplane",
+   "slot2D",
+   "cutBlind"
+  ],
+  "bearing_housing_counterbore": [
+   "box",
+   "cboreHole",
+   "rect-vertices",
+   "hole"
+  ],
+  "block_with_pocket": [
+   "box",
+   "cutBlind",
+   "sketch-fillet",
+   "hole",
+   "chamfer"
+  ],
+  "bolt_circle_flange_hub": [
+   "circle-extrude",
+   "chamfer",
+   "union",
+   "polarArray",
+   "hole",
+   "cut"
+  ],
+  "box_lid_lip": [
+   "box",
+   "rect-rect-extrude",
+   "fillet",
+   "shell",
+   "union",
+   "rect-vertices",
+   "hole",
+   "cskHole"
+  ],
+  "cable_tie_mount": [
+   "box",
+   "fillet",
+   "union",
+   "cut",
+   "cskHole",
+   "hole"
+  ],
+  "chamfered_cube": [
+   "box",
+   "chamfer",
+   "hole",
+   "cut"
+  ],
+  "chamfered_plate_center_bore": [
+   "box",
+   "chamfer",
+   "hole"
+  ],
+  "compartment_tray": [
+   "box",
+   "rarray",
+   "rect-cutBlind",
+   "sketch-fillet",
+   "side-face-workplane",
+   "circle-cutBlind"
+  ],
+  "composed_block": [
+   "box",
+   "fillet",
+   "chamfer",
+   "cut",
+   "hole",
+   "hole-blind",
+   "cboreHole",
+   "cutBlind",
+   "side-face-workplane",
+   "pushPoints"
+  ],
+  "composed_disc": [
+   "circle-extrude",
+   "chamfer",
+   "fillet",
+   "hole",
+   "cboreHole",
+   "cskHole",
+   "polarArray",
+   "cutBlind",
+   "union",
+   "cut",
+   "keyway",
+   "radial-hole"
+  ],
+  "composed_l_bracket": [
+   "box",
+   "union",
+   "fillet",
+   "chamfer",
+   "NearestToPointSelector",
+   "pushPoints",
+   "hole",
+   "cboreHole",
+   "cskHole",
+   "slot2D",
+   "cutThruAll",
+   "polyline-extrude",
+   "translate"
+  ],
+  "composed_plate": [
+   "box",
+   "fillet",
+   "chamfer",
+   "rect-vertices",
+   "rarray",
+   "pushPoints",
+   "hole",
+   "cboreHole",
+   "cskHole",
+   "polarArray",
+   "cutBlind",
+   "slot2D",
+   "cutThruAll",
+   "union",
+   "cut"
+  ],
+  "composed_ring": [
+   "circle-circle-extrude",
+   "circle-extrude",
+   "chamfer",
+   "fillet",
+   "polarArray",
+   "hole",
+   "cboreHole",
+   "cskHole",
+   "union",
+   "radial-hole",
+   "cut"
+  ],
+  "composed_tray": [
+   "box",
+   "fillet",
+   "shell",
+   "union",
+   "rect-rect-extrude",
+   "pushPoints",
+   "rarray",
+   "rect-vertices",
+   "hole",
+   "cut"
+  ],
+  "corner_brace_plate": [
+   "polyline-extrude",
+   "fillet",
+   "pushPoints",
+   "hole",
+   "cskHole"
+  ],
+  "counterbored_plate": [
+   "box",
+   "fillet",
+   "rarray",
+   "cboreHole",
+   "hole"
+  ],
+  "d_shaft_hub": [
+   "circle-extrude",
+   "D-bore",
+   "polarArray",
+   "hole",
+   "radial-hole",
+   "union",
+   "cut"
+  ],
+  "fan_guard": [
+   "rect-extrude",
+   "fillet",
+   "hole",
+   "rect-vertices",
+   "rotate",
+   "union",
+   "rarray",
+   "circle-extrude"
+  ],
+  "flange_bearing_mount": [
+   "box",
+   "rect-forConstruction",
+   "hole",
+   "circle-extrude",
+   "union"
+  ],
+  "flanged_bushing": [
+   "circle-extrude",
+   "hole",
+   "polarArray",
+   "chamfer"
+  ],
+  "flanged_spool": [
+   "polyline-revolve",
+   "box-cut",
+   "hole"
+  ],
+  "funnel": [
+   "polyline-revolve",
+   "uniform-wall",
+   "box-union",
+   "hole"
+  ],
+  "grille_disc": [
+   "circle-extrude",
+   "hole",
+   "polarArray",
+   "cskHole"
+  ],
+  "grommet_lip": [
+   "circle-extrude",
+   "stack-on-face",
+   "hole",
+   "ring-groove-cut",
+   "chamfer"
+  ],
+  "hex_perforated_plate": [
+   "box",
+   "fillet",
+   "hole",
+   "polygon",
+   "rarray",
+   "pushPoints",
+   "extrude-both",
+   "cut"
+  ],
+  "hex_spacer": [
+   "polygon-extrude",
+   "chamfer",
+   "hole"
+  ],
+  "hinge_leaf": [
+   "box",
+   "rarray",
+   "hole",
+   "cskHole",
+   "cylinder-union",
+   "cut"
+  ],
+  "hollow_rect_arm": [
+   "box",
+   "cut",
+   "hole",
+   "pushPoints",
+   "circle-extrude"
+  ],
+  "knob_grip_flutes": [
+   "circle-extrude",
+   "chamfer",
+   "polarArray",
+   "cut",
+   "D-bore"
+  ],
+  "l_bracket_gusset": [
+   "polyline-extrude",
+   "rib",
+   "translate",
+   "union",
+   "hole",
+   "slot2D"
+  ],
+  "l_bracket_holes": [
+   "polyline-extrude",
+   "fillet",
+   "pushPoints",
+   "hole"
+  ],
+  "nema17_motor_plate": [
+   "box",
+   "fillet",
+   "hole",
+   "rect-vertices",
+   "pushPoints",
+   "rarray",
+   "slot2D"
+  ],
+  "open_channel_cable_clip": [
+   "box",
+   "cut",
+   "hole",
+   "pushPoints"
+  ],
+  "open_sensor_housing": [
+   "box",
+   "shell",
+   "circle-extrude",
+   "rect-extrude",
+   "cut"
+  ],
+  "open_tray": [
+   "box",
+   "fillet",
+   "shell",
+   "union"
+  ],
+  "pegboard_plate": [
+   "rect-extrude",
+   "fillet",
+   "rarray",
+   "hole"
+  ],
+  "perforated_strip": [
+   "slot2D-extrude",
+   "rarray",
+   "hole"
+  ],
+  "phone_stand": [
+   "polyline-extrude",
+   "slot2D",
+   "cut",
+   "hole"
+  ],
+  "pillow_block": [
+   "box",
+   "chamfer",
+   "pushPoints",
+   "hole",
+   "slot2D",
+   "union",
+   "horizontal-bore"
+  ],
+  "pipe_elbow": [
+   "circle-circle",
+   "revolve",
+   "extrude",
+   "mirror",
+   "rotate",
+   "union"
+  ],
+  "pipe_saddle_clamp": [
+   "polyline-extrude",
+   "threePointArc",
+   "fillet",
+   "pushPoints",
+   "cut",
+   "slot2D"
+  ],
+  "plate_corner_mounting_holes": [
+   "box",
+   "rect-forConstruction",
+   "vertices",
+   "hole"
+  ],
+  "plate_with_bosses": [
+   "box",
+   "fillet",
+   "rarray",
+   "circle-extrude",
+   "union",
+   "hole"
+  ],
+  "project_box": [
+   "box",
+   "fillet",
+   "cutBlind",
+   "cut",
+   "rect-vertices",
+   "union",
+   "hole",
+   "side-face-workplane",
+   "slot2D"
+  ],
+  "pull_handle": [
+   "box",
+   "translate",
+   "fillet",
+   "pushPoints",
+   "rect-extrude",
+   "circle-extrude",
+   "union",
+   "bottom-face-workplane",
+   "hole-blind",
+   "hole"
+  ],
+  "ramp_block": [
+   "polyline-extrude",
+   "rarray",
+   "hole",
+   "cskHole",
+   "cboreHole"
+  ],
+  "ribbed_plate": [
+   "box",
+   "rarray",
+   "rect-extrude",
+   "union",
+   "hole"
+  ],
+  "right_angle_motor_bracket": [
+   "box",
+   "translate",
+   "union",
+   "circle-extrude",
+   "slot2D",
+   "cut"
+  ],
+  "ring_radial_holes": [
+   "circle-extrude",
+   "chamfer",
+   "hole",
+   "polarArray",
+   "eachpoint",
+   "cut"
+  ],
+  "round_container": [
+   "circle-extrude",
+   "shell",
+   "cutBlind",
+   "hole",
+   "polarArray"
+  ],
+  "round_foot_pad": [
+   "circle-extrude",
+   "chamfer",
+   "cskHole"
+  ],
+  "round_pad_center_bore": [
+   "circle-extrude",
+   "hole"
+  ],
+  "rounded_link": [
+   "slot2D-extrude",
+   "pushPoints",
+   "hole",
+   "cutThruAll"
+  ],
+  "screw_cap": [
+   "circle-extrude",
+   "hole",
+   "shell",
+   "polarArray",
+   "union",
+   "cut",
+   "chamfer"
+  ],
+  "shaft_collar_set_screw": [
+   "circle-extrude",
+   "hole",
+   "cut",
+   "radial-hole"
+  ],
+  "shaft_coupler": [
+   "circle-extrude",
+   "chamfer",
+   "hole",
+   "cut",
+   "radial-hole"
+  ],
+  "shelf_bracket": [
+   "polyline-extrude",
+   "offset2D",
+   "cut",
+   "hole"
+  ],
+  "slotted_plate": [
+   "box",
+   "slot2D",
+   "rarray",
+   "cutThruAll",
+   "fillet",
+   "hole"
+  ],
+  "slotted_tensioner_bracket": [
+   "box",
+   "fillet",
+   "hole",
+   "slot2D",
+   "cutThruAll"
+  ],
+  "split_shaft_collar": [
+   "circle-extrude",
+   "hole",
+   "box",
+   "translate",
+   "cut",
+   "cross-hole"
+  ],
+  "spring_clip": [
+   "circle-extrude",
+   "rect-extrude",
+   "union",
+   "hole",
+   "cutThruAll",
+   "fillet"
+  ],
+  "spur_gear": [
+   "lineTo",
+   "threePointArc",
+   "loop",
+   "extrude",
+   "hole",
+   "keyway-cut"
+  ],
+  "standoff_mounting_plate": [
+   "box",
+   "rect-vertices",
+   "circle-extrude",
+   "hole"
+  ],
+  "stepped_shaft": [
+   "circle-extrude",
+   "stack-on-face",
+   "chamfer",
+   "cross-hole-cut"
+  ],
+  "t_bracket_plate": [
+   "box",
+   "translate",
+   "union",
+   "fillet",
+   "pushPoints",
+   "hole",
+   "cskHole"
+  ],
+  "tapered_arm": [
+   "threePointArc",
+   "polyline-extrude",
+   "pushPoints",
+   "hole",
+   "slot2D",
+   "cutThruAll"
+  ],
+  "tapered_support_leg": [
+   "loft",
+   "hole"
+  ],
+  "tool_holder_block": [
+   "box",
+   "chamfer",
+   "workplane-origin",
+   "rarray",
+   "hole-blind"
+  ],
+  "transition_duct": [
+   "loft",
+   "extrude",
+   "cut",
+   "rect-vertices",
+   "hole"
+  ],
+  "tube_clamp_block": [
+   "box",
+   "chamfer",
+   "rect-vertices",
+   "hole",
+   "horizontal-bore",
+   "slit-cut",
+   "cross-hole"
+  ],
+  "tube_reducer": [
+   "revolve",
+   "polyline",
+   "taper",
+   "stepped-bore"
+  ],
+  "tube_spacer": [
+   "circle-extrude",
+   "hole",
+   "chamfer",
+   "fillet"
+  ],
+  "u_bracket_pivot": [
+   "box",
+   "translate",
+   "union",
+   "pushPoints",
+   "hole",
+   "cut"
+  ],
+  "u_channel_profile": [
+   "polyline-extrude",
+   "rarray",
+   "hole",
+   "box-cut"
+  ],
+  "v_groove_pulley": [
+   "revolve",
+   "polyline",
+   "threePointArc",
+   "radial-hole",
+   "cut"
+  ],
+  "vent_slot_plate": [
+   "box",
+   "fillet",
+   "rarray",
+   "slot2D",
+   "cutThruAll",
+   "hole",
+   "cskHole"
+  ],
+  "vented_enclosure": [
+   "box",
+   "shell",
+   "union",
+   "pushPoints",
+   "hole",
+   "slot2D",
+   "rarray",
+   "cut",
+   "fillet"
+  ],
+  "wall_hook": [
+   "box",
+   "hole",
+   "cskHole",
+   "polyline-extrude",
+   "tangentArcPoint",
+   "union"
+  ],
+  "wedge_door_stop": [
+   "polyline-extrude",
+   "pushPoints",
+   "cut",
+   "hole"
+  ],
+  "wheel_hub_bolt_circle": [
+   "circle-extrude",
+   "hole",
+   "polarArray"
+  ],
+  "z_bracket": [
+   "polyline-extrude",
+   "fillet",
+   "pushPoints",
+   "hole"
+  ]
+ },
+ "group_per_type": {
+  "angled_sensor_mount": "parts_angled_a",
+  "arc_cable_guide": "parts_sweep_a",
+  "arc_segment_plate": "parts_sweep_b",
+  "battery_holder": "parts_enclosure_a",
+  "bearing_housing_counterbore": "parts_legacy_b",
+  "block_with_pocket": "parts_synth_a",
+  "bolt_circle_flange_hub": "parts_patterns_b",
+  "box_lid_lip": "parts_enclosure_a",
+  "cable_tie_mount": "parts_mech_b",
+  "chamfered_cube": "parts_synth_b",
+  "chamfered_plate_center_bore": "parts_legacy_a",
+  "compartment_tray": "parts_enclosure_a",
+  "composed_block": "parts_composed",
+  "composed_disc": "parts_composed",
+  "composed_l_bracket": "parts_composed",
+  "composed_plate": "parts_composed",
+  "composed_ring": "parts_composed",
+  "composed_tray": "parts_composed",
+  "corner_brace_plate": "parts_brackets_a",
+  "counterbored_plate": "parts_synth_b",
+  "d_shaft_hub": "parts_mech_a",
+  "fan_guard": "parts_patterns_a",
+  "flange_bearing_mount": "parts_legacy_a",
+  "flanged_bushing": "parts_synth_a",
+  "flanged_spool": "parts_revolve_b",
+  "funnel": "parts_revolve_b",
+  "grille_disc": "parts_patterns_b",
+  "grommet_lip": "parts_revolve_b",
+  "hex_perforated_plate": "parts_patterns_a",
+  "hex_spacer": "parts_synth_b",
+  "hinge_leaf": "parts_brackets_b",
+  "hollow_rect_arm": "parts_legacy_b",
+  "knob_grip_flutes": "parts_revolve_a",
+  "l_bracket_gusset": "parts_brackets_a",
+  "l_bracket_holes": "parts_synth_a",
+  "nema17_motor_plate": "parts_mech_b",
+  "open_channel_cable_clip": "parts_legacy_a",
+  "open_sensor_housing": "parts_legacy_b",
+  "open_tray": "parts_synth_a",
+  "pegboard_plate": "parts_patterns_b",
+  "perforated_strip": "reference",
+  "phone_stand": "parts_angled_b",
+  "pillow_block": "parts_mech_a",
+  "pipe_elbow": "parts_sweep_a",
+  "pipe_saddle_clamp": "parts_mech_b",
+  "plate_corner_mounting_holes": "parts_legacy_a",
+  "plate_with_bosses": "parts_synth_b",
+  "project_box": "parts_enclosure_a",
+  "pull_handle": "parts_sweep_a",
+  "ramp_block": "parts_angled_a",
+  "ribbed_plate": "parts_synth_b",
+  "right_angle_motor_bracket": "parts_legacy_b",
+  "ring_radial_holes": "parts_sweep_b",
+  "round_container": "parts_enclosure_b",
+  "round_foot_pad": "reference",
+  "round_pad_center_bore": "parts_legacy_a",
+  "rounded_link": "parts_synth_b",
+  "screw_cap": "parts_revolve_a",
+  "shaft_collar_set_screw": "parts_legacy_a",
+  "shaft_coupler": "parts_mech_b",
+  "shelf_bracket": "parts_brackets_b",
+  "slotted_plate": "parts_synth_a",
+  "slotted_tensioner_bracket": "parts_legacy_b",
+  "split_shaft_collar": "parts_legacy_a",
+  "spring_clip": "parts_sweep_b",
+  "spur_gear": "parts_mech_a",
+  "standoff_mounting_plate": "parts_legacy_b",
+  "stepped_shaft": "parts_revolve_b",
+  "t_bracket_plate": "parts_brackets_a",
+  "tapered_arm": "parts_angled_b",
+  "tapered_support_leg": "parts_legacy_b",
+  "tool_holder_block": "parts_enclosure_b",
+  "transition_duct": "parts_angled_b",
+  "tube_clamp_block": "parts_mech_a",
+  "tube_reducer": "parts_revolve_a",
+  "tube_spacer": "parts_synth_a",
+  "u_bracket_pivot": "parts_legacy_a",
+  "u_channel_profile": "parts_brackets_b",
+  "v_groove_pulley": "parts_revolve_a",
+  "vent_slot_plate": "parts_patterns_a",
+  "vented_enclosure": "parts_enclosure_b",
+  "wall_hook": "parts_brackets_b",
+  "wedge_door_stop": "parts_angled_a",
+  "wheel_hub_bolt_circle": "parts_legacy_b",
+  "z_bracket": "parts_brackets_a"
+ },
+ "sha256": {
+  "train.jsonl": "c8839813932d984761717ed35fb1ba8f152e4a6b2a86514fc6de6f9340403b49",
+  "test_heldout_types.jsonl": "f059a95772f454a903701e971249dbd64383b78133b8a6c6d029ad801b9ee6db",
+  "val.jsonl": "7910aa081ba7bed5e6239a7143b91abfc50aeb43fdf02f21d6baf129e7a7fad0"
+ }
+}
