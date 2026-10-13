@@ -5,12 +5,16 @@
 <h3>Natural Language → Parametric CAD → Verified Geometry → Printable Files</h3>
 
 <p>
-  <a href="LIVE_DEMO_URL">
-    <img src="https://img.shields.io/badge/LIVE_DEMO-OPEN-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Live Demo">
+  <a href="./notebooks/Mujassam_training.ipynb">
+    <img src="https://img.shields.io/badge/TRAINING_NOTEBOOK-OPEN-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Training Notebook">
   </a>
   &nbsp;
-  <a href="DEMO_VIDEO_URL">
-    <img src="https://img.shields.io/badge/DEMO_VIDEO-WATCH-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Demo Video">
+  <a href="./results/">
+    <img src="https://img.shields.io/badge/FINAL_RESULTS-VIEW-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Final Results">
+  </a>
+  &nbsp;
+  <a href="./model/mujassam_qwen7b_qlora/">
+    <img src="https://img.shields.io/badge/TRAINED_ADAPTER-VIEW-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Trained Adapter">
   </a>
 </p>
 
@@ -159,6 +163,14 @@ Exports
 
 STEP · STL · GLB
 
+<h2><strong>Trained Adapter</strong></h2>
+
+The trained QLoRA adapter is included in the repository under:
+
+model/mujassam_qwen7b_qlora/
+
+The adapter is loaded on top of Qwen/Qwen2.5-Coder-7B-Instruct. Its folder includes the PEFT adapter files and a dedicated MODEL_CARD.md documenting training, intended use, evaluation, and limitations.
+
 <h1><strong>TRAINING DATA</strong></h1>
 
 The final adapter is trained on project-generated procedural CAD data.
@@ -227,6 +239,12 @@ Parameterized generators create varied dimensions, optional features, natural-la
 </p>
 
 5,860 / 5,860 direct-generation targets passed the verification pipeline.
+
+<h2><strong>Repository Data Package</strong></h2>
+
+Training and evaluation data are stored under data/. To keep the repository tidy, the dataset may be packaged as an archive. If an archive is present, extract it inside the repository before running the training or evaluation notebooks so the expected data/... paths are available.
+
+The data package contains the supervised training records, validation records, locked evaluation manifests, sealed user requests, regression sets, held-out part-type tests, and reserve evaluation prompts used in the reported experiments.
 
 <h1><strong>FEATURE COMPOSITION</strong></h1>
 
@@ -439,6 +457,38 @@ The model performs strongly on familiar CAD operations.
 
 The main remaining challenge is generalization to unfamiliar geometry and more complex feature relationships.
 
+<h1><strong>REPRODUCIBILITY ARTIFACTS</strong></h1>
+
+The repository includes the executed notebooks and result files used to document training and evaluation.
+
+Artifact
+
+Purpose
+
+notebooks/Mujassam_training.ipynb
+
+Final QLoRA training run with saved outputs
+
+notebooks/Mujassam_validation.ipynb
+
+Model-selection / validation run
+
+notebooks/Mujassam_final_evaluation.ipynb
+
+Final frozen-model evaluation
+
+notebooks/Mujassam_baseline_comparison.ipynb
+
+Paired base-model vs fine-tuned comparison
+
+results/
+
+Final metrics, baseline summaries, evaluation evidence, and figures
+
+Shapes.zip
+
+11 generated STEP examples for direct CAD inspection
+
 <h1><strong>VALIDATION</strong></h1>
 
 <h2><strong>Automatically Checked</strong></h2>
@@ -458,13 +508,17 @@ Advanced sweeps and lofts · unusual slots · subtle feature orientation · stru
 
 Mujassam is a capstone prototype, not an engineering-certification system.
 
-<h1><strong>LIVE DEMO</strong></h1>
+<h1><strong>PROJECT ARTIFACTS</strong></h1>
 
 <div align="center">
 
-Open Mujassam →
+Open the Training Notebook →
 
-Watch the Demo Video →
+Inspect the Final Results →
+
+View the Trained QLoRA Adapter →
+
+Inspect Generated STEP Examples →
 
 </div>
 
@@ -481,40 +535,20 @@ Watch the Demo Video →
 <p align="center">
   <strong>Ghaida Alsalamah</strong>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>Alreem Aldossary</strong>
+  <strong>Alreem Rashed Aldossary</strong>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <strong>Fahad Alshehri</strong>
 </p>
 
 <details>
-<summary><h2><strong>RUN THE PROJECT</strong></h2></summary>
+<summary><h2><strong>REPRODUCE THE PROJECT</strong></h2></summary>
 
-Colab
-
-Open Mujassam_demo.ipynb.
-
-Select a T4 GPU or better.
-
-Run the cells in order.
-
-Upload the project ZIP when requested.
-
-Upload the trained QLoRA adapter ZIP when requested.
-
-Wait for the model and adapter to load.
-
-Launch the application.
-
-Example:
-
-Flanged bearing mount, overall 48 x 48 x 18 mm,
-24 mm central bore, four 4 mm mounting holes
-on a 36 mm square pattern.
-
-Local Setup
+1. Clone the repository
 
 git clone https://github.com/ghaida-alsalamah/Mujassam.git
 cd Mujassam
+
+2. Create an environment
 
 python -m venv .venv
 
@@ -530,7 +564,30 @@ Install dependencies:
 
 pip install -r requirements.txt
 
-A CUDA-capable GPU is recommended for local 7B inference.
+3. Prepare the data
+
+If the contents under data/ are packaged in a ZIP archive, extract the archive before running the notebooks. The extracted files must preserve the data/... paths referenced by the evaluation manifests.
+
+4. Model
+
+The trained adapter is stored in:
+
+model/mujassam_qwen7b_qlora/
+
+It is loaded on top of:
+
+Qwen/Qwen2.5-Coder-7B-Instruct
+
+5. Run the notebooks
+
+For the documented experiments, use the notebooks under notebooks/:
+
+Mujassam_training.ipynb
+Mujassam_validation.ipynb
+Mujassam_final_evaluation.ipynb
+Mujassam_baseline_comparison.ipynb
+
+A CUDA-capable GPU is recommended for 7B inference and QLoRA workflows.
 
 </details>
 
@@ -539,18 +596,34 @@ A CUDA-capable GPU is recommended for local 7B inference.
 
 Mujassam/
 ├── README.md
+├── LICENSE
+├── .gitignore
 ├── requirements.txt
-├── app.py
-├── Mujassam_demo.ipynb
-├── mujassam/
+├── Shapes.zip
+│
 ├── data/
-├── scripts/
-├── tests/
-├── results/
-└── docs/
-    └── assets/
-        ├── mujassam-hero.jpg
-        └── mujassam-outputs.png
+│   └── training + validation + locked evaluation data
+│
+├── docs/
+│   └── assets/
+│       ├── mujassam-hero.jpg
+│       └── mujassam-outputs.png
+│
+├── model/
+│   └── mujassam_qwen7b_qlora/
+│       ├── MODEL_CARD.md
+│       ├── adapter_config.json
+│       └── adapter_model.safetensors
+│
+├── notebooks/
+│   ├── Mujassam_training.ipynb
+│   ├── Mujassam_validation.ipynb
+│   ├── Mujassam_final_evaluation.ipynb
+│   └── Mujassam_baseline_comparison.ipynb
+│
+└── results/
+    ├── final_results/
+    └── figures/
 
 </details>
 
@@ -637,7 +710,7 @@ Describe It · Generate It · Check It · Print It
 
 <br><br>
 
-Ghaida Alsalamah · Alreem Aldossary · Fahad Alshehri
+Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri
 
 <br><br>
 
