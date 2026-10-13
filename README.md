@@ -569,6 +569,7 @@ A CUDA-capable GPU is recommended for 7B inference and QLoRA workflows.
 <details>
 <summary><h2><strong>REPOSITORY STRUCTURE</strong></h2></summary>
 
+<pre>
 Mujassam/
 ├── README.md
 ├── LICENSE
@@ -599,7 +600,8 @@ Mujassam/
 └── results/
     ├── final_results/
     └── figures/
-
+<pre>
+  
 </details>
 
 <details>
