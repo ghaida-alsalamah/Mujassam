@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Do NOT ignore the final Mujassam adapter.
+# Only ignore temporary training checkpoints.
+checkpoint-*/
+checkpoints/
+
+# ML caches
+.cache/
+huggingface/
+transformers_cache/
+wandb/
+
+# Vector DB runtime cache
+chroma/
+chroma_db/
+*.sqlite
+*.sqlite3
+
+# Temporary CAD/runtime files
+tmp/
+temp/
+logs/
+*.log
+
+# Keep curated results / output examples
+out/*
+!out/showcase/
+!out/showcase/**
+!out/final_results/
+!out/final_results/**
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Random archives
+*.rar
+*.7z
+
+# Build files
+build/
+dist/
+*.egg-info/
