@@ -476,16 +476,6 @@ Stronger semantic feature validation · broader verified geometry coverage · pe
 
 </details>
 
----
-
-<details>
-<summary><h2><strong>AI-ASSISTED DEVELOPMENT DISCLOSURE</strong></h2></summary>
-
-AI tools were used during development for implementation support, debugging, code review, generator review, documentation, and interface prototyping.
-
-The team directed the work, ran training and evaluation, reviewed the outputs, and programmatically verified training targets before inclusion in the fine-tuning set.
-
-</details>
 
 ---
 
