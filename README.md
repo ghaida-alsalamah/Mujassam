@@ -6,596 +6,437 @@ Natural language → parametric CAD → verified geometry → printable files
 
 <p>
   <a href="LIVE_DEMO_URL">
-    <img src="https://img.shields.io/badge/Live_Demo-Open-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Live Demo">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-OPEN-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Live Demo">
   </a>
   &nbsp;
   <a href="DEMO_VIDEO_URL">
-    <img src="https://img.shields.io/badge/Demo_Video-Watch-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Demo Video">
+    <img src="https://img.shields.io/badge/DEMO_VIDEO-WATCH-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Demo Video">
   </a>
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/Model-Qwen2.5--Coder--7B-6B7280?style=flat-square&labelColor=0B1F3A" alt="Model">
-  <img src="https://img.shields.io/badge/Adaptation-QLoRA_r16-6B7280?style=flat-square&labelColor=0B1F3A" alt="Adaptation">
+  <img src="https://img.shields.io/badge/MODEL-Qwen2.5--Coder--7B-6B7280?style=flat-square&labelColor=0B1F3A" alt="Model">
+  <img src="https://img.shields.io/badge/ADAPTATION-QLoRA_r16-6B7280?style=flat-square&labelColor=0B1F3A" alt="Adaptation">
   <img src="https://img.shields.io/badge/RAG-MiniLM_%2B_Chroma-6B7280?style=flat-square&labelColor=0B1F3A" alt="RAG">
   <img src="https://img.shields.io/badge/CAD-CadQuery-6B7280?style=flat-square&labelColor=0B1F3A" alt="CAD">
-  <img src="https://img.shields.io/badge/Export-STEP_%7C_STL_%7C_GLB-6B7280?style=flat-square&labelColor=0B1F3A" alt="Exports">
+  <img src="https://img.shields.io/badge/OUTPUT-STEP_%7C_STL_%7C_GLB-6B7280?style=flat-square&labelColor=0B1F3A" alt="Output">
 </p>
 
 Tuwaiq Academy · Generative AI Application Engineering Bootcamp · October 2026
 
 </div>
 
-The Problem
+THE PROBLEM
 
-Small custom parts such as brackets, mounts, spacers, bearing holders, and replacement pieces still require CAD skills and manual modelling.
+Small custom parts can be simple in shape but still require CAD knowledge and manual modelling.
 
-General-purpose LLMs can write CAD-like code, but the result may:
+<table>
+<tr>
+<td align="center" width="25%"><b>⚠️ CODE</b><br><sub>generated CAD may not execute</sub></td>
+<td align="center" width="25%"><b>📏 SIZE</b><br><sub>a plausible preview may still be the wrong size</sub></td>
+<td align="center" width="25%"><b>🧩 GEOMETRY</b><br><sub>solids can be invalid or disconnected</sub></td>
+<td align="center" width="25%"><b>⭕ FEATURES</b><br><sub>requested holes or bores may be missing</sub></td>
+</tr>
+</table>
 
-Risk
+Mujassam checks the generated geometry before it is exported.
 
-What can happen
-
-Code failure
-
-the generated CadQuery does not execute
-
-Wrong dimensions
-
-the preview looks plausible but the part does not fit
-
-Invalid geometry
-
-disconnected or non-watertight solids are produced
-
-Missing features
-
-holes or bores requested by the user are absent
-
-Mujassam was built so a generated part is checked before it is exported.
-
-The Solution
+THE SOLUTION
 
 Mujassam is a generative CAD tool for students, robotics teams, fab labs, and small workshops.
 
-The user describes a mechanical part and states its overall dimensions in millimetres. Mujassam retrieves engineering guidance, generates CadQuery, executes it, validates the result, retries rejected outputs, and returns editable and printable files.
-
-Input
-
-Generation
-
-Verification
-
-Output
-
-Natural-language part description + overall size
-
-Fine-tuned Qwen generates CadQuery
-
-Safety · execution · geometry · dimensions · supported holes
-
-STEP · STL · GLB
+<table>
+<tr>
+<td align="center" width="22%">
+<img src="https://img.shields.io/badge/1-DESCRIBE-0B1F3A?style=for-the-badge" alt="Describe"><br>
+<sub>Part description + overall size</sub>
+</td>
+<td align="center" width="4%"><h2>→</h2></td>
+<td align="center" width="22%">
+<img src="https://img.shields.io/badge/2-GENERATE-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Generate"><br>
+<sub>Fine-tuned Qwen writes CadQuery</sub>
+</td>
+<td align="center" width="4%"><h2>→</h2></td>
+<td align="center" width="22%">
+<img src="https://img.shields.io/badge/3-VERIFY-0B1F3A?style=for-the-badge" alt="Verify"><br>
+<sub>Execute · measure · validate</sub>
+</td>
+<td align="center" width="4%"><h2>→</h2></td>
+<td align="center" width="22%">
+<img src="https://img.shields.io/badge/4-EXPORT-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Export"><br>
+<sub>STEP · STL · GLB</sub>
+</td>
+</tr>
+</table>
 
 <!--
 ADD FINAL WEBSITE SCREENSHOTS HERE
 
 <p align="center">
-  <img src="docs/assets/home.png" width="49%" alt="Mujassam home">
-  <img src="docs/assets/result.png" width="49%" alt="Mujassam generated part">
+  <img src="docs/assets/home.png" width="49%" alt="Mujassam home screen">
+  <img src="docs/assets/result.png" width="49%" alt="Mujassam generated result">
 </p>
 
-Optional physical fit image:
+Optional physical-fit photo:
 <p align="center">
-  <img src="docs/assets/physical-fit.jpg" width="65%" alt="Printed Mujassam part fitted to a real component">
+  <img src="docs/assets/physical-fit.jpg" width="65%" alt="Printed generated part fitted to a real component">
 </p>
 -->
 
-System Architecture
+SYSTEM ARCHITECTURE
 
-flowchart LR
-    A["Web UI"] --> B["Pipeline Orchestrator"]
-    B --> C["Specification Reader"]
-    B --> D["RAG Retriever"]
-    C --> E["Qwen2.5-Coder-7B + QLoRA"]
-    D --> E
-    E --> F["AST Safety Gate"]
-    F --> G["CadQuery Executor"]
-    G --> H["Geometry Validator"]
-    H -->|PASS| I["STEP / STL / GLB"]
-    H -->|REJECT| J["Failure Feedback"]
-    J --> E
-    G -.-> K["Monitoring"]
-    H -.-> K
+Main generation path
 
-    style A fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style B fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style C fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style D fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style E fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style F fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style G fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style H fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style I fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style J fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style K fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
+<table>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/INPUT-Web_UI-0B1F3A?style=for-the-badge" alt="Web UI">
+</td>
+<td align="center"><h2>→</h2></td>
+<td align="center">
+<img src="https://img.shields.io/badge/CONTROL-Pipeline_Orchestrator-0B1F3A?style=for-the-badge" alt="Pipeline Orchestrator">
+</td>
+<td align="center"><h2>→</h2></td>
+<td align="center">
+<img src="https://img.shields.io/badge/GENERATE-Qwen_7B_%2B_QLoRA-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Qwen + QLoRA">
+</td>
+<td align="center"><h2>→</h2></td>
+<td align="center">
+<img src="https://img.shields.io/badge/SAFE-AST_Gate-0B1F3A?style=for-the-badge" alt="AST Safety">
+</td>
+</tr>
+<tr>
+<td></td><td></td><td></td><td></td>
+<td align="center"><h2>↓</h2></td><td></td><td></td>
+</tr>
+<tr>
+<td align="center" colspan="3">
+<img src="https://img.shields.io/badge/CONTEXT-Spec_Reader_%2B_RAG-0B1F3A?style=for-the-badge" alt="Spec Reader and RAG">
+<br><sub>feeds dimensions + retrieved engineering guidance into generation</sub>
+</td>
+<td></td>
+<td align="center">
+<img src="https://img.shields.io/badge/RUN-CadQuery_Executor-0B1F3A?style=for-the-badge" alt="CadQuery Executor">
+</td>
+<td align="center"><h2>→</h2></td>
+<td align="center">
+<img src="https://img.shields.io/badge/CHECK-Geometry_Validator-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Geometry Validator">
+</td>
+</tr>
+<tr>
+<td></td><td></td><td></td><td></td><td></td><td></td>
+<td align="center"><h2>↓</h2></td>
+</tr>
+<tr>
+<td align="center" colspan="5"><sub>Rejected output → execution / measurement feedback → model retries</sub></td>
+<td></td>
+<td align="center">
+<img src="https://img.shields.io/badge/PASS-STEP_%7C_STL_%7C_GLB-0B1F3A?style=for-the-badge" alt="Exports">
+</td>
+</tr>
+</table>
 
 Where is the generative AI?
-The Qwen2.5-Coder-7B + QLoRA component writes the CadQuery program for every request. The rest of the system handles retrieval, safety, execution, validation, repair, monitoring, and export.
 
-Request Flow
+Qwen2.5-Coder-7B + QLoRA generates the CadQuery program for every request.
+Retrieval, execution, validation, monitoring, and export are deterministic support components around the model.
 
-flowchart TD
-    A["Describe the part + overall size"] --> B["Read measurable specification"]
-    B --> C["Retrieve engineering context"]
-    C --> D["Generate CadQuery"]
-    D --> E{"Safe code?"}
-    E -->|No| R["Send failure back to model"]
-    E -->|Yes| F["Execute CadQuery"]
-    F --> G{"One valid watertight solid?"}
-    G -->|No| R
-    G -->|Yes| H{"Overall size within tolerance?"}
-    H -->|No| R
-    H -->|Yes| I{"Supported holes / bores correct?"}
-    I -->|No| R
-    I -->|Yes| J["Preview + STEP + STL + GLB"]
-    R --> D
+REQUEST WORKFLOW
 
-    style A fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style B fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style C fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style D fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style E fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style F fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style G fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style H fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style I fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style J fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style R fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
+<table>
+<tr>
+<td align="center"><b>1</b><br>Describe part<br><sub>+ overall size</sub></td>
+<td align="center">→</td>
+<td align="center"><b>2</b><br>Read spec<br><sub>dimensions + tolerance</sub></td>
+<td align="center">→</td>
+<td align="center"><b>3</b><br>Retrieve<br><sub>recipe + API notes</sub></td>
+<td align="center">→</td>
+<td align="center"><b>4</b><br>Generate<br><sub>CadQuery</sub></td>
+</tr>
+<tr>
+<td align="center"><b>8</b><br>Export<br><sub>STEP · STL · GLB</sub></td>
+<td align="center">←</td>
+<td align="center"><b>7</b><br>Feature check<br><sub>supported holes / bores</sub></td>
+<td align="center">←</td>
+<td align="center"><b>6</b><br>Geometry check<br><sub>solid · watertight · size</sub></td>
+<td align="center">←</td>
+<td align="center"><b>5</b><br>Execute<br><sub>isolated CadQuery run</sub></td>
+</tr>
+</table>
 
-Model & Technology Stack
+<div align="center">
 
-Component
+FAIL at any gate → feedback → regenerate
 
-Technology
+</div>
 
-Purpose
+MODEL & STACK
 
-Base model
+<table>
+<tr>
+<th>Component</th>
+<th>Choice</th>
+<th>Why it is used</th>
+</tr>
+<tr><td><b>Base model</b></td><td><code>Qwen2.5-Coder-7B-Instruct</code></td><td>code-focused generation</td></tr>
+<tr><td><b>Adaptation</b></td><td>QLoRA · r16 · α32</td><td>task-specific fine-tuning</td></tr>
+<tr><td><b>Quantization</b></td><td>4-bit NF4</td><td>memory-efficient training / inference</td></tr>
+<tr><td><b>Embeddings</b></td><td>all-MiniLM-L6-v2</td><td>semantic retrieval</td></tr>
+<tr><td><b>Vector store</b></td><td>Chroma</td><td>RAG knowledge search</td></tr>
+<tr><td><b>CAD engine</b></td><td>CadQuery</td><td>parametric solid modelling</td></tr>
+<tr><td><b>Exports</b></td><td>STEP · STL · GLB</td><td>edit · print · preview</td></tr>
+</table>
 
-Qwen/Qwen2.5-Coder-7B-Instruct
+TRAINING DATA
 
-CadQuery code generation
+<div align="center">
 
-Adaptation
+<img src="https://img.shields.io/badge/DESIGNED_TYPES-85-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="85 designed types">
+<img src="https://img.shields.io/badge/TRAINING_TYPES-76-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="76 training types">
+<img src="https://img.shields.io/badge/DIRECT_EXAMPLES-5%2C860-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="5860 direct examples">
+<img src="https://img.shields.io/badge/REPAIR_EXAMPLES-963-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="963 repair examples">
+<img src="https://img.shields.io/badge/TOTAL_RECORDS-6%2C823-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="6823 records">
 
-QLoRA · r=16 · alpha=32
-
-task-specific fine-tuning
-
-Quantization
-
-4-bit NF4
-
-memory-efficient training / inference
-
-Embeddings
-
-all-MiniLM-L6-v2
-
-semantic retrieval
-
-Vector DB
-
-Chroma
-
-RAG storage and search
-
-CAD engine
-
-CadQuery
-
-parametric solid modelling
-
-Interface
-
-final web UI + backend
-
-user input, preview, downloads
-
-Exports
-
-STEP · STL · GLB
-
-editing, printing, web preview
-
-Training Data
-
-The final adapter is trained on project-generated procedural CAD data. Parameterized generators create the request, dimensions, features, and exact CadQuery target, then the target is executed and verified before it enters training.
+</div>
 
 Dataset split
 
-pie showData
-    title Designed part types
-    "Training" : 76
-    "Validation only" : 2
-    "Completely held out" : 7
-
-Dataset item
-
-Count
-
-Designed part types
-
-85
-
-Training part types
-
-76
-
-Validation-only types
-
-2
-
-Held-out test types
-
-7
-
-Verified direct-generation examples
-
-5,860
-
-Repair examples
-
-963
-
-Total chat-format training records
-
-6,823
-
-Training-data pipeline
-
-flowchart LR
-    A["Part Generator"] --> B["Random Valid Dimensions + Features"]
-    B --> C["Natural-Language Request"]
-    B --> D["Target CadQuery"]
-    D --> E["Execute Target"]
-    E --> F{"Verification Pass?"}
-    F -->|No| G["Reject Example"]
-    F -->|Yes| H["Training Record"]
-    C --> H
-    H --> I["QLoRA Fine-Tuning"]
-
-    style A fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style B fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style C fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style D fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style E fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style F fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style G fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style H fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style I fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-
-What is verified before training?
-
-Check
-
-Required
-
-CadQuery executes
-
-✓
-
-AST safety rules pass
-
-✓
-
-Exactly one valid solid
-
-✓
-
-Correct overall envelope
-
-✓
-
-Watertight STL
-
-✓
-
-Requested hole diameter where applicable
-
-✓
-
-Solid / empty feature probes match
-
-✓
-
-5,860 / 5,860 direct training targets passed verification.
-
-Feature Composition
-
-Six special generators teach the model to combine reusable CAD operations instead of learning only fixed named objects.
-
-Generator
-
-Example feature combinations
-
-composed_plate
-
-holes · bolt pattern · pocket · chamfer
-
-composed_block
-
-bore · slot · cut-out · mounting holes
-
-composed_disc
-
-center bore · polar holes · boss
-
-composed_l_bracket
-
-base slots · upright holes · chamfer
-
-composed_ring
-
-bore · radial holes · split / cut
-
-composed_tray
-
-walls · compartments · mounting features
-
-Each composition uses 2–4 compatible features.
-
-Fine-Tuning vs RAG
-
-flowchart LR
-    A["5,860 Direct Examples"] --> D["QLoRA Adapter"]
-    B["963 Repair Examples"] --> D
-    C["Feature Composition"] --> D
-
-    E["16 Engineering Recipes"] --> H["RAG Retriever"]
-    F["8 CadQuery API Notes"] --> H
-    G["Current User Request"] --> H
-
-    D --> I["Fine-Tuned Qwen"]
-    H --> J["Generation Prompt"]
-    G --> J
-    I --> J
-    J --> K["Generated CadQuery"]
-
-    style A fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style B fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style C fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style D fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style E fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style F fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style G fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style H fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style I fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style J fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style K fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-
-Fine-tuning
-
-RAG
-
-Changes the QLoRA adapter weights
-
-Does not change model weights
-
-Uses thousands of verified examples
-
-Uses a compact knowledge base
-
-Teaches text → CadQuery and repair behaviour
-
-Gives context for the current request
-
-Happens before deployment
-
-Runs on every user request
-
-5,860 direct + 963 repair examples
-
-16 recipes + 8 API notes
-
-RAG provides at most 1 engineering recipe + 2 API notes per request. It never returns the finished CAD program.
-
-Evaluation
-
-The final frozen model is evaluated on familiar and genuinely unseen cases.
-
-Evaluation set
-
-Purpose
-
-Overall-size pass
-
-Size + requested holes
-
-In-domain regression
-
-familiar learned operations
-
-20/20 · 100%
-
-20/20 · 100%
-
-Second in-domain regression
-
-additional familiar cases
-
-12/12 · 100%
-
-12/12 · 100%
-
-Sealed user test
-
-30 new requests not used for tuning
-
-13/30 · 43.3%
-
-11/30 · 36.7%
-
-Held-out part types
-
-28 cases from 7 excluded types
-
-10/28 · 35.7%
-
-7/28 · 25.0%
-
-Independent reserve
-
-separate 20-case set
-
-5/20 · 25.0%
-
-4/20 · 20.0%
-
-Sealed-test performance by difficulty
-
-Difficulty
-
-Cases
-
-Passed
-
-Pass rate
-
-Tier 1 · 1–2 features
-
-10
-
-6
-
-60.0%
-
-Tier 2 · 3–4 features
-
-12
-
-4
-
-33.3%
-
-Tier 3 · angled / revolved / curved / patterned
-
-8
-
-3
-
-37.5%
-
-Main sealed-test failure modes
-
-Failure mode
-
-Cases
-
-Code error
-
-9
-
-Wrong size
-
-5
-
-Invalid geometry
-
-3
-
-The results show strong performance on learned CAD operations and a clear generalization gap on unfamiliar topology. That gap is reported directly rather than hidden behind only familiar examples.
-
-Validation Pipeline
-
-flowchart LR
-    A["Generated CadQuery"] --> B{"AST Safe?"}
-    B -->|No| X["Reject"]
-    B -->|Yes| C{"Executes?"}
-    C -->|No| X
-    C -->|Yes| D{"One Valid Solid?"}
-    D -->|No| X
-    D -->|Yes| E{"Watertight?"}
-    E -->|No| X
-    E -->|Yes| F{"Size Correct?"}
-    F -->|No| X
-    F -->|Yes| G{"Supported Holes Correct?"}
-    G -->|No| X
-    G -->|Yes| H["Export"]
-
-    style A fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style B fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style C fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style D fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style E fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style F fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style G fill:#FF6B00,stroke:#FF6B00,color:#0B1F3A
-    style H fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-    style X fill:#0B1F3A,stroke:#0B1F3A,color:#ffffff
-
-Automatically checked
-
-Still needs human review
-
-code safety
-
-unusual slot geometry
-
-execution
-
-advanced sweeps / lofts
-
-one valid solid
-
-subtle feature orientation
-
-watertightness
-
-every pocket / chamfer relationship
-
-overall dimensions
-
-structural suitability
-
-supported holes / bores
-
-real-world mechanical fit
+<table>
+<tr>
+<td align="center" width="33%">
+<h2>76</h2>
+<b>Training types</b><br>
+<sub>used to update the QLoRA adapter</sub>
+</td>
+<td align="center" width="33%">
+<h2>2</h2>
+<b>Validation-only types</b><br>
+<sub>used for model selection</sub>
+</td>
+<td align="center" width="33%">
+<h2>7</h2>
+<b>Held-out types</b><br>
+<sub>never included in training</sub>
+</td>
+</tr>
+</table>
+
+How a training example is created
+
+<table>
+<tr>
+<td align="center"><b>Part generator</b></td>
+<td align="center">→</td>
+<td align="center"><b>Valid dimensions + features</b></td>
+<td align="center">→</td>
+<td align="center"><b>Request + target CadQuery</b></td>
+<td align="center">→</td>
+<td align="center"><b>Execute + verify</b></td>
+<td align="center">→</td>
+<td align="center"><b>Training record</b></td>
+</tr>
+</table>
+
+Verification before training
+
+<table>
+<tr>
+<td>✓ CadQuery executes</td>
+<td>✓ AST safety rules</td>
+<td>✓ one valid solid</td>
+</tr>
+<tr>
+<td>✓ correct envelope</td>
+<td>✓ watertight STL</td>
+<td>✓ requested hole checks where applicable</td>
+</tr>
+</table>
+
+5,860 / 5,860 direct targets passed the verification pipeline.
+
+FEATURE COMPOSITION
+
+Instead of only training complete named parts, six generators combine 2–4 reusable CAD features.
+
+<table>
+<tr>
+<th>Generator</th>
+<th>Typical combinations</th>
+</tr>
+<tr><td><code>composed_plate</code></td><td>holes · bolt pattern · pocket · chamfer</td></tr>
+<tr><td><code>composed_block</code></td><td>bore · slot · cut-out · mounting holes</td></tr>
+<tr><td><code>composed_disc</code></td><td>center bore · polar holes · boss</td></tr>
+<tr><td><code>composed_l_bracket</code></td><td>base slots · upright holes · chamfer</td></tr>
+<tr><td><code>composed_ring</code></td><td>bore · radial holes · split / cut</td></tr>
+<tr><td><code>composed_tray</code></td><td>walls · compartments · mounting features</td></tr>
+</table>
+
+FINE-TUNING vs RAG
+
+<table>
+<tr>
+<th width="50%">QLoRA · learned before deployment</th>
+<th width="50%">RAG · retrieved on every request</th>
+</tr>
+<tr>
+<td valign="top">
+<b>5,860</b> verified direct examples<br>
+<b>963</b> repair examples<br>
+<b>6</b> feature-composition generators<br><br>
+<b>Purpose:</b> teach text → CadQuery and repair behaviour
+</td>
+<td valign="top">
+<b>16</b> engineering construction recipes<br>
+<b>8</b> CadQuery API notes<br>
+<b>≤1 recipe + ≤2 notes</b> per request<br><br>
+<b>Purpose:</b> provide compact engineering context
+</td>
+</tr>
+<tr>
+<td align="center">changes the adapter weights</td>
+<td align="center">does not change the model weights</td>
+</tr>
+</table>
+
+<div align="center">
+
+Current request + retrieved context → fine-tuned Qwen → generated CadQuery
+
+</div>
+
+EVALUATION
+
+Final frozen-model comparison
+
+<table>
+<tr>
+<th>Evaluation set</th>
+<th>Cases</th>
+<th>Overall-size pass</th>
+<th>Size + requested holes</th>
+</tr>
+<tr>
+<td><b>In-domain regression</b></td>
+<td align="center">20</td>
+<td align="center"><img src="https://img.shields.io/badge/20%2F20-100%25-FF6B00?style=flat-square&labelColor=0B1F3A" alt="100%"></td>
+<td align="center"><img src="https://img.shields.io/badge/20%2F20-100%25-FF6B00?style=flat-square&labelColor=0B1F3A" alt="100%"></td>
+</tr>
+<tr>
+<td><b>Second in-domain regression</b></td>
+<td align="center">12</td>
+<td align="center"><img src="https://img.shields.io/badge/12%2F12-100%25-FF6B00?style=flat-square&labelColor=0B1F3A" alt="100%"></td>
+<td align="center"><img src="https://img.shields.io/badge/12%2F12-100%25-FF6B00?style=flat-square&labelColor=0B1F3A" alt="100%"></td>
+</tr>
+<tr>
+<td><b>Sealed user test</b></td>
+<td align="center">30</td>
+<td align="center"><img src="https://img.shields.io/badge/13%2F30-43.3%25-6B7280?style=flat-square&labelColor=0B1F3A" alt="43.3%"></td>
+<td align="center"><img src="https://img.shields.io/badge/11%2F30-36.7%25-6B7280?style=flat-square&labelColor=0B1F3A" alt="36.7%"></td>
+</tr>
+<tr>
+<td><b>Held-out part types</b></td>
+<td align="center">28</td>
+<td align="center"><img src="https://img.shields.io/badge/10%2F28-35.7%25-6B7280?style=flat-square&labelColor=0B1F3A" alt="35.7%"></td>
+<td align="center"><img src="https://img.shields.io/badge/7%2F28-25.0%25-6B7280?style=flat-square&labelColor=0B1F3A" alt="25%"></td>
+</tr>
+<tr>
+<td><b>Independent reserve</b></td>
+<td align="center">20</td>
+<td align="center"><img src="https://img.shields.io/badge/5%2F20-25.0%25-6B7280?style=flat-square&labelColor=0B1F3A" alt="25%"></td>
+<td align="center"><img src="https://img.shields.io/badge/4%2F20-20.0%25-6B7280?style=flat-square&labelColor=0B1F3A" alt="20%"></td>
+</tr>
+</table>
+
+Sealed test by difficulty
+
+<table>
+<tr>
+<th>Difficulty</th>
+<th>Cases</th>
+<th>Passed</th>
+<th>Pass rate</th>
+</tr>
+<tr><td><b>Tier 1</b> · 1–2 features</td><td align="center">10</td><td align="center">6</td><td align="center"><b>60.0%</b></td></tr>
+<tr><td><b>Tier 2</b> · 3–4 features</td><td align="center">12</td><td align="center">4</td><td align="center"><b>33.3%</b></td></tr>
+<tr><td><b>Tier 3</b> · curved / angled / patterned</td><td align="center">8</td><td align="center">3</td><td align="center"><b>37.5%</b></td></tr>
+</table>
+
+Main failure modes on the sealed test
+
+<table>
+<tr>
+<td align="center" width="33%"><h2>9</h2><b>Code errors</b></td>
+<td align="center" width="33%"><h2>5</h2><b>Wrong size</b></td>
+<td align="center" width="33%"><h2>3</h2><b>Invalid geometry</b></td>
+</tr>
+</table>
+
+The results show strong performance on familiar CAD operations and a clear generalization gap on genuinely unfamiliar geometry.
+
+VALIDATION & SAFETY
+
+<table>
+<tr>
+<th>Automatically checked</th>
+<th>Still requires human review</th>
+</tr>
+<tr>
+<td>✓ generated-code safety</td>
+<td>uncommon slot geometry</td>
+</tr>
+<tr>
+<td>✓ isolated execution + timeout</td>
+<td>advanced sweeps / lofts</td>
+</tr>
+<tr>
+<td>✓ exactly one valid solid</td>
+<td>subtle feature orientation</td>
+</tr>
+<tr>
+<td>✓ watertightness</td>
+<td>every pocket / chamfer relationship</td>
+</tr>
+<tr>
+<td>✓ overall dimensions</td>
+<td>structural suitability</td>
+</tr>
+<tr>
+<td>✓ supported holes / bores</td>
+<td>real-world mechanical fit</td>
+</tr>
+</table>
 
 Mujassam is a capstone prototype, not an engineering-certification system.
 
-Monitoring & Responsible AI
+DEMO
 
-Area
+<table>
+<tr>
+<td align="center" width="50%">
+<h3>LIVE APPLICATION</h3>
+<a href="LIVE_DEMO_URL"><b>Open Mujassam →</b></a>
+</td>
+<td align="center" width="50%">
+<h3>DEMO VIDEO</h3>
+<a href="DEMO_VIDEO_URL"><b>Watch the demo →</b></a>
+</td>
+</tr>
+</table>
 
-What we record / enforce
+TEAM
 
-Monitoring
+<table>
+<tr>
+<td align="center" width="33%"><h2>👤</h2><b>[Team Member 1]</b></td>
+<td align="center" width="33%"><h2>👤</h2><b>[Team Member 2]</b></td>
+<td align="center" width="33%"><h2>👤</h2><b>[Team Member 3]</b></td>
+</tr>
+</table>
 
-request · model · retrieval scores · pass/fail · gate · error · attempts · dimension error · latency
+<details>
+<summary><b>▶ Run the project</b></summary>
 
-Generated-code safety
-
-AST filter + isolated process + timeout
-
-Export safety
-
-failed geometry is not exported
-
-Weapon requests
-
-unambiguous weapon / ammunition requests are rejected before generation
-
-Privacy
-
-users are asked not to enter personal data because requests may be logged
-
-Usage warning
-
-generated parts are not engineering-certified
-
-Run the Project
-
-Quickest route · Colab
+Colab demo
 
 Open Mujassam_demo.ipynb.
 
@@ -607,11 +448,11 @@ Upload Mujassam_QWEN7B_V5_project.zip.
 
 Upload mujassam_v5_A_7B_r16_adapter.zip.
 
-Wait for the model + adapter to load.
+Wait for the base model + adapter to load.
 
-Launch the application.
+Launch the application from the final cell.
 
-Example:
+Example request:
 
 Flanged bearing mount, overall 48 x 48 x 18 mm,
 24 mm central bore, four 4 mm mounting holes
@@ -619,23 +460,28 @@ on a 36 mm square pattern.
 
 Local setup
 
-git clone REPOSITORY_URL
-cd mujassam_mvp_project
+git clone https://github.com/ghaida-alsalamah/Mujassam.git
+cd Mujassam
 python -m venv .venv
 
-Windows
+Windows:
 
 .venv\Scripts\activate
 
-macOS / Linux
+macOS / Linux:
 
 source .venv/bin/activate
+
+Then:
 
 pip install -r requirements.txt
 
 A CUDA-capable GPU is recommended for local 7B inference.
 
-Repository Structure
+</details>
+
+<details>
+<summary><b>▶ Repository structure</b></summary>
 
 mujassam_mvp_project/
 ├── README.md
@@ -658,127 +504,94 @@ mujassam_mvp_project/
 ├── results/
 └── docs/
 
-Data Sources & Licences
+</details>
 
-Resource
+<details>
+<summary><b>▶ Data sources & licences</b></summary>
 
-Role
-
-Licence / note
-
-Qwen/Qwen2.5-Coder-7B-Instruct
-
-base code model
-
-Apache-2.0
-
-Project-generated procedural CAD data
-
-fine-tuning
-
-generated and verified in this project
-
-all-MiniLM-L6-v2
-
-RAG embeddings
-
-Apache-2.0
-
-CadQuery
-
-CAD execution
-
-Apache-2.0
-
-Chroma
-
-vector retrieval
-
-Apache-2.0
-
-Transformers · PEFT · bitsandbytes
-
-model loading / QLoRA
-
-upstream licences
+<table>
+<tr><th>Resource</th><th>Role</th><th>Licence / note</th></tr>
+<tr><td>Qwen2.5-Coder-7B-Instruct</td><td>base code model</td><td>Apache-2.0</td></tr>
+<tr><td>Project-generated procedural CAD data</td><td>fine-tuning supervision</td><td>generated and verified in this project</td></tr>
+<tr><td>all-MiniLM-L6-v2</td><td>RAG embeddings</td><td>Apache-2.0</td></tr>
+<tr><td>CadQuery</td><td>CAD execution</td><td>Apache-2.0</td></tr>
+<tr><td>Chroma</td><td>vector retrieval</td><td>Apache-2.0</td></tr>
+<tr><td>Transformers · PEFT · bitsandbytes</td><td>model loading / QLoRA</td><td>upstream licences</td></tr>
+</table>
 
 No external CAD dataset is used to train the final adapter.
 
-Lessons & Next Steps
+</details>
 
-What worked
+<details>
+<summary><b>▶ Monitoring, risks & next steps</b></summary>
+
+Monitoring
+
+Each build records:
+
+request · model · retrieval scores · pass/fail · rejected gate · error type · attempts · dimension error · latency
+
+Responsible use
+
+unambiguous weapon / ammunition requests are rejected before generation;
+
+generated Python passes an AST safety filter;
+
+execution runs in an isolated process with a timeout;
+
+failed parts are not exported;
+
+users are warned that generated parts are not engineering-certified;
+
+users are asked not to enter personal information because requests may be logged.
+
+What we learned
+
+Worked well
 
 Main limitation
 
 Next step
 
-verified procedural training data
+verified procedural data
 
-unfamiliar topology generalizes poorly
+unfamiliar topology
 
-broaden verified topology coverage
+broader verified geometry coverage
 
 code-focused QLoRA
 
-feature semantics are not fully checked
+incomplete semantic checking
 
 stronger feature validators
 
 compact engineering RAG
 
-complex geometry can repeat the same bad program
+repeated repair failures
 
-more diverse repair strategy
+more diverse repair strategies
 
 execution-based validation
 
-current user input is English-first
+English-first input
 
-Arabic input support
+stronger Arabic support
 
 physical-fit testing
 
-deployment needs persistent GPU compute
+temporary compute
 
-production backend deployment
+persistent GPU deployment
 
-Team
-
-<table>
-<tr>
-<td align="center" width="33%">
-<h2>👤</h2>
-<b>Fahad Alshehri</b>
-</td>
-<td align="center" width="33%">
-<h2>👤</h2>
-<b>Ghaida Alsalamah</b>
-</td>
-<td align="center" width="33%">
-<h2>👤</h2>
-<b>Alreem Rashed Aldossary</b>
-</td>
-</tr>
-</table>
-
-Live Demo
-
-Open Mujassam →
-
-Demo Video
-
-Watch the project demo →
-
-Repository
-
-GitHub repository →
+</details>
 
 <details>
-<summary><b>AI-assisted development disclosure</b></summary>
+<summary><b>▶ AI-assisted development disclosure</b></summary>
 
 AI tools were used during development for implementation support, debugging, code review, generator review, documentation, and interface prototyping.
 
-The team directed the work, ran the training and evaluations, and reviewed the outputs. Training targets were executed and programmatically verified before inclusion in the fine-tuning set.
+The team directed the work, ran training and evaluation, and reviewed the outputs. Training targets were executed and programmatically verified before inclusion in the fine-tuning set.
 
 </details>
 
@@ -787,5 +600,7 @@ The team directed the work, ran the training and evaluations, and reviewed the o
 Mujassam · مجسّم
 
 Describe it · Generate it · Check it · Print it
+
+Repository: https://github.com/ghaida-alsalamah/Mujassam
 
 </div>
