@@ -26,7 +26,7 @@
   <img src="https://img.shields.io/badge/EXPORT-STEP_%7C_STL_%7C_GLB-6B7280?style=flat-square&labelColor=0B1F3A" alt="Export">
 </p>
 
-Ghaida Alsalamah · Alreem Aldossary · Fahad Alshehri
+<strong>Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri</strong>
 
 Tuwaiq Academy · Generative AI Application Engineering Bootcamp · October 2026
 
@@ -119,49 +119,26 @@ Only an accepted result reaches export.
 
 <h1><strong>MODEL & TECHNOLOGY</strong></h1>
 
-Component
-
-Final Choice
-
-Base Model
-
-Qwen/Qwen2.5-Coder-7B-Instruct
-
-Adaptation
-
-QLoRA
-
-LoRA Configuration
-
-rank 16 · alpha 32 · dropout 0.05
-
-Quantization
-
-4-bit NF4 + double quantization
-
-Context Length
-
-2,048 tokens
-
-Trainable Parameters
-
-~40.4M · ~0.53%
-
-Embeddings
-
-sentence-transformers/all-MiniLM-L6-v2
-
-Vector Database
-
-Chroma
-
-CAD Engine
-
-CadQuery
-
-Exports
-
-STEP · STL · GLB
+<table>
+  <thead>
+    <tr>
+      <th align="left">Component</th>
+      <th align="left">Final Choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Base Model</strong></td><td><code>Qwen/Qwen2.5-Coder-7B-Instruct</code></td></tr>
+    <tr><td><strong>Adaptation</strong></td><td>QLoRA</td></tr>
+    <tr><td><strong>LoRA Configuration</strong></td><td>rank 16 · alpha 32 · dropout 0.05</td></tr>
+    <tr><td><strong>Quantization</strong></td><td>4-bit NF4 + double quantization</td></tr>
+    <tr><td><strong>Context Length</strong></td><td>2,048 tokens</td></tr>
+    <tr><td><strong>Trainable Parameters</strong></td><td>~40.4M · ~0.53%</td></tr>
+    <tr><td><strong>Embeddings</strong></td><td><code>sentence-transformers/all-MiniLM-L6-v2</code></td></tr>
+    <tr><td><strong>Vector Database</strong></td><td>Chroma</td></tr>
+    <tr><td><strong>CAD Engine</strong></td><td>CadQuery</td></tr>
+    <tr><td><strong>Exports</strong></td><td>STEP · STL · GLB</td></tr>
+  </tbody>
+</table>
 
 <h2><strong>Trained Adapter</strong></h2>
 
@@ -208,25 +185,47 @@ Parameterized generators create varied dimensions, optional features, natural-la
 
 <h2><strong>Separate Validation & Test Sets</strong></h2>
 
-42 generated validation cases
-
-30 in-distribution
-
-12 from the 2 validation-only part types
-
-28 held-out part-type cases
-
-7 unseen part types
-
-4 requests per type
-
-30 sealed user requests
-
-20 independent reserve requests
-
-20 in-domain regression requests
-
-12 second in-domain regression requests
+<table>
+  <thead>
+    <tr>
+      <th align="left">Evaluation Split</th>
+      <th align="center">Cases</th>
+      <th align="left">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Generated Validation</strong></td>
+      <td align="center"><strong>42</strong></td>
+      <td>30 in-distribution + 12 from 2 validation-only part types</td>
+    </tr>
+    <tr>
+      <td><strong>Held-Out Part Types</strong></td>
+      <td align="center"><strong>28</strong></td>
+      <td>7 unseen part types × 4 requests each</td>
+    </tr>
+    <tr>
+      <td><strong>Sealed User Requests</strong></td>
+      <td align="center"><strong>30</strong></td>
+      <td>Independent user-style evaluation</td>
+    </tr>
+    <tr>
+      <td><strong>Independent Reserve</strong></td>
+      <td align="center"><strong>20</strong></td>
+      <td>Additional untouched reserve set</td>
+    </tr>
+    <tr>
+      <td><strong>In-Domain Regression</strong></td>
+      <td align="center"><strong>20</strong></td>
+      <td>Familiar CAD-operation regression set</td>
+    </tr>
+    <tr>
+      <td><strong>Second In-Domain Regression</strong></td>
+      <td align="center"><strong>12</strong></td>
+      <td>Second familiar-operation regression set</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2><strong>Verification Before Training</strong></h2>
 
@@ -254,21 +253,30 @@ Six composition generators teach the model to combine 2–4 compatible CAD opera
 
 composed_plate · composed_block · composed_disc · composed_l_bracket · composed_ring · composed_tray
 
-Examples:
+<h2><strong>Composition Examples</strong></h2>
 
-base plate
-+ mounting holes
-+ pocket
-+ chamfer
-
-disc
-+ centre bore
-+ bolt circle
-+ raised boss
-
-L-bracket
-+ adjustment slots
-+ upright holes
+<table>
+  <thead>
+    <tr>
+      <th align="left">Base Geometry</th>
+      <th align="left">Composed Features</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>base plate</code></td>
+      <td>mounting holes · pocket · chamfer</td>
+    </tr>
+    <tr>
+      <td><code>disc</code></td>
+      <td>centre bore · bolt circle · raised boss</td>
+    </tr>
+    <tr>
+      <td><code>L-bracket</code></td>
+      <td>adjustment slots · upright holes</td>
+    </tr>
+  </tbody>
+</table>
 
 This gives the model repeated practice with reusable geometry operations instead of only fixed object templates.
 
@@ -340,43 +348,51 @@ Both conditions used the same RAG context, system prompt, CadQuery executor, val
 
 <h2><strong>Overall-Size Pass</strong></h2>
 
-Evaluation Set
-
-Base Qwen2.5-Coder-7B
-
-Mujassam Fine-Tuned
-
-In-Domain Regression
-
-7/20 · 35.0%
-
-20/20 · 100.0%
-
-Second In-Domain Regression
-
-1/12 · 8.3%
-
-12/12 · 100.0%
+<table>
+  <thead>
+    <tr>
+      <th align="left">Evaluation Set</th>
+      <th align="center">Base Qwen2.5-Coder-7B</th>
+      <th align="center">Mujassam Fine-Tuned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>In-Domain Regression</strong></td>
+      <td align="center"><strong>7/20 · 35.0%</strong></td>
+      <td align="center"><strong>20/20 · 100.0%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Second In-Domain Regression</strong></td>
+      <td align="center"><strong>1/12 · 8.3%</strong></td>
+      <td align="center"><strong>12/12 · 100.0%</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 <h2><strong>Size + Requested Holes</strong></h2>
 
-Evaluation Set
-
-Base Qwen2.5-Coder-7B
-
-Mujassam Fine-Tuned
-
-In-Domain Regression
-
-2/20 · 10.0%
-
-20/20 · 100.0%
-
-Second In-Domain Regression
-
-0/12 · 0.0%
-
-12/12 · 100.0%
+<table>
+  <thead>
+    <tr>
+      <th align="left">Evaluation Set</th>
+      <th align="center">Base Qwen2.5-Coder-7B</th>
+      <th align="center">Mujassam Fine-Tuned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>In-Domain Regression</strong></td>
+      <td align="center"><strong>2/20 · 10.0%</strong></td>
+      <td align="center"><strong>20/20 · 100.0%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Second In-Domain Regression</strong></td>
+      <td align="center"><strong>0/12 · 0.0%</strong></td>
+      <td align="center"><strong>12/12 · 100.0%</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 <p align="center">
   <img src="https://img.shields.io/badge/BASELINE_SIZE-35.0%25-6B7280?style=for-the-badge&labelColor=0B1F3A" alt="Baseline size pass 35 percent">
@@ -389,53 +405,23 @@ The paired comparison shows that QLoRA adaptation substantially improved reliabl
 
 <h2><strong>Final Frozen-Model Results</strong></h2>
 
-Evaluation Set
-
-Cases
-
-Overall-Size Pass
-
-Size + Requested Holes
-
-In-Domain Regression
-
-20
-
-20/20 · 100%
-
-20/20 · 100%
-
-Second In-Domain Regression
-
-12
-
-12/12 · 100%
-
-12/12 · 100%
-
-Sealed User Test
-
-30
-
-13/30 · 43.3%
-
-11/30 · 36.7%
-
-Held-Out Part Types
-
-28
-
-10/28 · 35.7%
-
-7/28 · 25.0%
-
-Independent Reserve
-
-20
-
-5/20 · 25.0%
-
-4/20 · 20.0%
+<table>
+  <thead>
+    <tr>
+      <th align="left">Evaluation Set</th>
+      <th align="center">Cases</th>
+      <th align="center">Overall-Size Pass</th>
+      <th align="center">Size + Requested Holes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>In-Domain Regression</strong></td><td align="center">20</td><td align="center"><strong>20/20 · 100%</strong></td><td align="center"><strong>20/20 · 100%</strong></td></tr>
+    <tr><td><strong>Second In-Domain Regression</strong></td><td align="center">12</td><td align="center"><strong>12/12 · 100%</strong></td><td align="center"><strong>12/12 · 100%</strong></td></tr>
+    <tr><td><strong>Sealed User Test</strong></td><td align="center">30</td><td align="center"><strong>13/30 · 43.3%</strong></td><td align="center"><strong>11/30 · 36.7%</strong></td></tr>
+    <tr><td><strong>Held-Out Part Types</strong></td><td align="center">28</td><td align="center"><strong>10/28 · 35.7%</strong></td><td align="center"><strong>7/28 · 25.0%</strong></td></tr>
+    <tr><td><strong>Independent Reserve</strong></td><td align="center">20</td><td align="center"><strong>5/20 · 25.0%</strong></td><td align="center"><strong>4/20 · 20.0%</strong></td></tr>
+  </tbody>
+</table>
 
 <h2><strong>Sealed Test by Difficulty</strong></h2>
 
@@ -461,33 +447,22 @@ The main remaining challenge is generalization to unfamiliar geometry and more c
 
 The repository includes the executed notebooks and result files used to document training and evaluation.
 
-Artifact
-
-Purpose
-
-notebooks/Mujassam_training.ipynb
-
-Final QLoRA training run with saved outputs
-
-notebooks/Mujassam_validation.ipynb
-
-Model-selection / validation run
-
-notebooks/Mujassam_final_evaluation.ipynb
-
-Final frozen-model evaluation
-
-notebooks/Mujassam_baseline_comparison.ipynb
-
-Paired base-model vs fine-tuned comparison
-
-results/
-
-Final metrics, baseline summaries, evaluation evidence, and figures
-
-Shapes.zip
-
-11 generated STEP examples for direct CAD inspection
+<table>
+  <thead>
+    <tr>
+      <th align="left">Artifact</th>
+      <th align="left">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>notebooks/Mujassam_training.ipynb</code></td><td>Final QLoRA training run with saved outputs</td></tr>
+    <tr><td><code>notebooks/Mujassam_validation.ipynb</code></td><td>Model-selection / validation run</td></tr>
+    <tr><td><code>notebooks/Mujassam_final_evaluation.ipynb</code></td><td>Final frozen-model evaluation</td></tr>
+    <tr><td><code>notebooks/Mujassam_baseline_comparison.ipynb</code></td><td>Paired base-model vs fine-tuned comparison</td></tr>
+    <tr><td><code>results/</code></td><td>Final metrics, baseline summaries, evaluation evidence, and figures</td></tr>
+    <tr><td><code>Shapes.zip</code></td><td>11 generated STEP examples for direct CAD inspection</td></tr>
+  </tbody>
+</table>
 
 <h1><strong>VALIDATION</strong></h1>
 
@@ -535,7 +510,7 @@ Inspect Generated STEP Examples →
 <p align="center">
   <strong>Ghaida Alsalamah</strong>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>Alreem Aldossary</strong>
+  <strong>Alreem Rashed Aldossary</strong>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <strong>Fahad Alshehri</strong>
 </p>
@@ -630,33 +605,22 @@ Mujassam/
 <details>
 <summary><h2><strong>DATA SOURCES & LICENCES</strong></h2></summary>
 
-Resource
-
-Role
-
-Qwen2.5-Coder-7B-Instruct
-
-base code model · Apache-2.0
-
-Project-generated procedural CAD data
-
-fine-tuning supervision
-
-all-MiniLM-L6-v2
-
-RAG embeddings
-
-Chroma
-
-vector retrieval
-
-CadQuery
-
-parametric CAD execution
-
-Transformers · PEFT · bitsandbytes
-
-model loading, QLoRA, quantized inference
+<table>
+  <thead>
+    <tr>
+      <th align="left">Resource</th>
+      <th align="left">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Qwen2.5-Coder-7B-Instruct</strong></td><td>base code model · Apache-2.0</td></tr>
+    <tr><td><strong>Project-generated procedural CAD data</strong></td><td>fine-tuning supervision</td></tr>
+    <tr><td><strong>all-MiniLM-L6-v2</strong></td><td>RAG embeddings</td></tr>
+    <tr><td><strong>Chroma</strong></td><td>vector retrieval</td></tr>
+    <tr><td><strong>CadQuery</strong></td><td>parametric CAD execution</td></tr>
+    <tr><td><strong>Transformers · PEFT · bitsandbytes</strong></td><td>model loading, QLoRA, quantized inference</td></tr>
+  </tbody>
+</table>
 
 No external CAD dataset is used to train the final adapter.
 
@@ -710,7 +674,7 @@ Describe It · Generate It · Check It · Print It
 
 <br><br>
 
-Ghaida Alsalamah · Alreem Aldossary · Fahad Alshehri
+Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri
 
 <br><br>
 
