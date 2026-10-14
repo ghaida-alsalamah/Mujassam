@@ -518,7 +518,7 @@ Inspect Generated STEP Examples →
 <p align="center">
   <strong>Ghaida Alsalamah</strong>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>Alreem Rashed Aldossary</strong>
+  <strong>Alreem Aldossary</strong>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <strong>Fahad Alshehri</strong>
 </p>
