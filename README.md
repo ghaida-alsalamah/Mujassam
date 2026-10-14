@@ -5,6 +5,10 @@
 <h3>Natural Language → Parametric CAD → Verified Geometry → Printable Files</h3>
 
 <p>
+  <a href="https://3d-web-self.vercel.app/">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-OPEN-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Live Demo">
+  </a>
+  &nbsp;
   <a href="./notebooks/Mujassam_training.ipynb">
     <img src="https://img.shields.io/badge/TRAINING_NOTEBOOK-OPEN-FF6B00?style=for-the-badge&labelColor=0B1F3A" alt="Training Notebook">
   </a>
@@ -487,6 +491,10 @@ Mujassam is a capstone prototype, not an engineering-certification system.
 
 <div align="center">
 
+<a href="https://3d-web-self.vercel.app/"><strong>Open the Live Mujassam Application →</strong></a>
+
+<br><br>
+
 Open the Training Notebook →
 
 Inspect the Final Results →
@@ -518,12 +526,12 @@ Inspect Generated STEP Examples →
 <details>
 <summary><h2><strong>REPRODUCE THE PROJECT</strong></h2></summary>
 
-1. Clone the repository
+Clone the repository
 
 git clone https://github.com/ghaida-alsalamah/Mujassam.git
 cd Mujassam
 
-2. Create an environment
+Create an environment
 
 python -m venv .venv
 
@@ -539,11 +547,11 @@ Install dependencies:
 
 pip install -r requirements.txt
 
-3. Prepare the data
+Prepare the data
 
 If the contents under data/ are packaged in a ZIP archive, extract the archive before running the notebooks. The extracted files must preserve the data/... paths referenced by the evaluation manifests.
 
-4. Model
+Model
 
 The trained adapter is stored in:
 
@@ -553,7 +561,7 @@ It is loaded on top of:
 
 Qwen/Qwen2.5-Coder-7B-Instruct
 
-5. Run the notebooks
+Run the notebooks
 
 For the documented experiments, use the notebooks under notebooks/:
 
@@ -681,5 +689,7 @@ Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri
 <br><br>
 
 Repository: https://github.com/ghaida-alsalamah/Mujassam
+
+Website: https://3d-web-self.vercel.app/
 
 </div>
