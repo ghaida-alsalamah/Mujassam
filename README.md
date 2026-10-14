@@ -30,7 +30,7 @@
   <img src="https://img.shields.io/badge/EXPORT-STEP_%7C_STL_%7C_GLB-6B7280?style=flat-square&labelColor=0B1F3A" alt="Export">
 </p>
 
-<strong>Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri</strong>
+<strong>Ghaida Alsalamah · Alreem Aldossary · Fahad Alshehri</strong>
 
 Tuwaiq Academy · Generative AI Application Engineering Bootcamp · October 2026
 
@@ -684,7 +684,7 @@ Describe It · Generate It · Check It · Print It
 
 <br><br>
 
-Ghaida Alsalamah · Alreem Rashed Aldossary · Fahad Alshehri
+Ghaida Alsalamah · Alreem Aldossary · Fahad Alshehri
 
 <br><br>
 
